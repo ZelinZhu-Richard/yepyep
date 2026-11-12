@@ -4,32 +4,38 @@ A shared skill for **Codex and Claude Code** that deliberately widens coverage
 before narrowing to a decision. More reasoning effort alone can deepen familiar
 ideas without discovering different ones.
 
-**Lead plans → inexpensive capable workers explore → stronger reviewer filters
-and checks → lead decides.**
+**Lead plans → inexpensive capable workers explore → a stronger model
+consolidates → a fresh-context challenger attacks the result → lead decides.**
+
+| Role | Codex | Claude Code |
+| --- | --- | --- |
+| Lead | GPT-6 Astra | Fable or Opus |
+| Collectors | GPT-6 Luna | Haiku |
+| Consolidator and challenger | GPT-6.1 Sol | Opus under a Fable lead, Sonnet under an Opus lead |
 
 ## The workflow
 
 1. First ask: **What is the cheapest capable subagent model actually available in
    this session?** Check runtime capabilities, billing, and price freshness.
-2. Use 2–3 planning rounds, with three questions per round, to examine foundations,
-   sources, missing perspectives, and counterevidence.
+2. Use 2–3 planning rounds of three self-directed questions each. Every round's
+   questions build on the previous round's answers: the field, then its sources,
+   then the gaps and counterevidence.
 3. Build a coverage map and divide it into bounded assignments. The lead chooses
    how many workers each area needs **after decomposition**. There is no fixed
    number per platform, and simple tasks need not spawn workers.
-4. Assign distinct retrieval/extraction tasks to inexpensive workers. Preserve
-   sources, uncertainty, failed searches, and niche findings. Queue work in waves
-   when the host limits concurrency.
-5. Ask a stronger reviewer to deduplicate, assess evidence, expose disagreements,
-   retain supported unusual ideas, and explain exclusions.
+4. Assign distinct retrieval/extraction tasks to inexpensive workers, each with
+   its own angle and seed queries. Workers write evidence to files and return
+   short summaries, so the lead's context stays small. Queue work in waves when
+   the host limits concurrency.
+5. A stronger consolidator deduplicates, assesses evidence, and explains
+   exclusions. A challenger then tries to break the shortlist and rescue niche
+   findings that were cut for being unusual rather than unsupported.
 6. The lead checks decisive evidence, fills important gaps within budget, and
    delivers the answer and recommendation with coverage limits.
 
-The requested Codex example is **GPT-6 Astra → GPT-6 Luna → GPT-6.1 Sol → Astra**.
-These are user-preferred roles, not verified pricing or quality rankings. Use
-them only when exposed by the runtime. Claude Code follows the same workflow
-using its available models; Haiku/Sonnet/Opus are conditional role candidates.
-The skill cannot change the active lead model or create unsupported subagent
-capabilities. Select your preferred lead in your host before invoking it.
+The roles are preferences, used when the runtime can select those models. The
+skill cannot change the active lead model, so select your lead in the host
+before invoking it.
 
 ## Use it
 
@@ -93,9 +99,11 @@ The source is [LiteLLM's community-maintained model catalog](https://github.com/
 The reference contains direct OpenAI/Anthropic chat API token-price **estimates**,
 retrieval time, source URL, and a SHA-256 digest. It is not an official price quote,
 a native subagent model menu, or a subscription-cost table. Retrieval time does
-not establish when the upstream prices were verified. The helper refuses stale
-data after seven days and never treats missing prices as zero. Check current
-provider/account pricing for a meaningful comparison.
+not establish when the upstream prices were verified. The helper labels data
+older than seven days as stale, refuses it after 30 days, and never treats
+missing prices as zero. Claude Code aliases (`haiku`, `sonnet`, `opus`, `fable`)
+resolve through the hand-maintained `references/host-aliases.json`, which the
+weekly job does not update.
 
 Weekly changes reach GitHub, not arbitrary local copies. Run `git pull --ff-only`
 in your clean skill checkout to receive them; linked installations then use the
@@ -107,10 +115,10 @@ Manual refresh and checks:
 python3 skills/breadth-first/scripts/refresh_models.py
 python3 -m unittest discover -s tests -v
 python3 skills/breadth-first/scripts/rank_models.py \
-  --model EXACT_AVAILABLE_MODEL_ID --input-tokens 4000 --output-tokens 1000
+  --model gpt-6-luna --model haiku --input-tokens 60000 --output-tokens 3000
 ```
 
-The ranking command exits with status 2 for stale/malformed data or when none of
+The ranking command exits with status 2 for expired/malformed data or when none of
 the supplied IDs have prices. Unknown models remain explicit even when other
 candidates can be ranked. Failed refreshes preserve the prior catalog.
 

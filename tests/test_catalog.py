@@ -64,11 +64,32 @@ class CatalogTests(unittest.TestCase):
         result = rank(self.catalog, ["cheap", "unpriced"], 10, 10, NOW)
         self.assertEqual(result["unpriced_ids"], ["unpriced"])
 
-    def test_rejects_stale_and_future_timestamps(self):
-        for offset in (timedelta(days=7, seconds=1), timedelta(minutes=-6)):
+    def test_labels_stale_and_rejects_expired_and_future_timestamps(self):
+        for offset in (timedelta(days=30, seconds=1), timedelta(minutes=-6)):
             with self.subTest(offset=offset), self.assertRaises(ValueError):
                 rank(self.catalog, ["cheap"], 10, 10, NOW + offset)
-        rank(self.catalog, ["cheap"], 10, 10, NOW + timedelta(days=7))
+        fresh = rank(self.catalog, ["cheap"], 10, 10, NOW + timedelta(days=7))
+        self.assertEqual(fresh["status"], "estimated")
+        stale = rank(self.catalog, ["cheap"], 10, 10, NOW + timedelta(days=7, seconds=1))
+        self.assertEqual(stale["status"], "estimated_stale")
+        self.assertEqual(stale["catalog_age_days"], 7.0)
+        self.assertEqual(len(stale["ranked"]), 1)
+
+    def test_aliases_resolve_explicitly_and_stay_visible(self):
+        aliases = {"verified_at": "2026-11-12", "aliases": {"small": "cheap", "gone": "retired"}}
+        result = rank(self.catalog, ["small", "gone", "reviewer"], 10, 10, NOW, alias_map=aliases)
+        self.assertEqual([r["id"] for r in result["ranked"]], ["cheap", "reviewer"])
+        self.assertEqual(result["ranked"][0]["requested_as"], "small")
+        self.assertEqual(result["ranked"][0]["alias_verified_at"], "2026-11-12")
+        self.assertNotIn("requested_as", result["ranked"][1])
+        self.assertEqual(result["unpriced_ids"], ["gone"])
+        self.assertEqual(rank(self.catalog, ["small"], 10, 10, NOW)["unpriced_ids"], ["small"])
+        with self.assertRaises(ValueError):
+            rank(self.catalog, ["small"], 10, 10, NOW, alias_map={"aliases": {"small": 3}})
+
+    def test_bundled_alias_map_is_well_formed(self):
+        from catalog import validate_aliases
+        validate_aliases(json.loads((SKILL / "references/host-aliases.json").read_text()))
 
     def test_rejects_missing_timezone_and_invalid_dates(self):
         for value in (None, "2026-11-12T12:00:00", "yesterday"):

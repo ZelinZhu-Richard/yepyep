@@ -7,7 +7,8 @@ from datetime import datetime, timezone
 
 SOURCE_URL = "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json"
 PROVIDERS = {"openai", "anthropic"}
-MAX_AGE_DAYS = 7
+STALE_AFTER_DAYS = 7   # weekly refresh cadence: older data is ranked but labeled
+MAX_AGE_DAYS = 30      # beyond this the estimate is refused
 
 
 def positive_number(value):
@@ -120,8 +121,19 @@ def guard_changes(previous, updated):
                 raise ValueError(f"Price changed over tenfold for {model_id}; inspect upstream")
 
 
-def rank(data, model_ids, input_tokens, output_tokens, now=None):
+def validate_aliases(data):
+    aliases = data.get("aliases") if isinstance(data, dict) else None
+    if not isinstance(aliases, dict) or not isinstance(data.get("verified_at"), str):
+        raise ValueError("Malformed alias map")
+    for alias, target in aliases.items():
+        if not isinstance(target, str) or not target.strip() or alias in aliases.values():
+            raise ValueError(f"Malformed alias: {alias}")
+    return data
+
+
+def rank(data, model_ids, input_tokens, output_tokens, now=None, alias_map=None):
     validate_catalog(data)
+    aliases = validate_aliases(alias_map)["aliases"] if alias_map else {}
     if any(not isinstance(n, int) or isinstance(n, bool) or n < 0 for n in (input_tokens, output_tokens)):
         raise ValueError("Token estimates must be nonnegative integers")
     if input_tokens + output_tokens == 0:
@@ -133,23 +145,29 @@ def rank(data, model_ids, input_tokens, output_tokens, now=None):
     if age < -300:
         raise ValueError("Catalog timestamp is in the future")
     if age > MAX_AGE_DAYS * 86400:
-        raise ValueError("Catalog is stale (over seven days); refresh or use a labeled host-tier fallback")
+        raise ValueError(f"Catalog is over {MAX_AGE_DAYS} days old; refresh or use a labeled host-tier fallback")
+    stale = age > STALE_AFTER_DAYS * 86400
     by_id = {row["id"]: row for row in data["models"]}
     ranked, unknown = [], []
     for model_id in dict.fromkeys(model_ids):
-        row = by_id.get(model_id)
+        # An exact catalog ID always wins; aliases are explicit, never fuzzy.
+        resolved = model_id if model_id in by_id else aliases.get(model_id, model_id)
+        row = by_id.get(resolved)
         if row is None:
             unknown.append(model_id)
             continue
         ranked.append({
             **row,
+            **({"requested_as": model_id, "alias_verified_at": alias_map["verified_at"]}
+               if resolved != model_id else {}),
             "estimated_standard_token_cost_usd": round((input_tokens * row["input_usd_per_million"]
                                                         + output_tokens * row["output_usd_per_million"]) / 1e6, 10),
         })
     ranked.sort(key=lambda row: (row["estimated_standard_token_cost_usd"], row["id"]))
     return {
-        "status": "estimated" if ranked else "no_matching_prices",
+        "status": ("estimated_stale" if stale else "estimated") if ranked else "no_matching_prices",
         "fetched_at": data["fetched_at"],
+        "catalog_age_days": round(max(age, 0) / 86400, 1),
         "price_basis": data["price_basis"],
         "input_tokens": input_tokens,
         "output_tokens": output_tokens,

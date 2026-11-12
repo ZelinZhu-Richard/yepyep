@@ -19,8 +19,13 @@ provider verification. Changing vendor pricing sources requires a code change.
 The automation updates **model reference data**, not the skill's behavior or
 model role preferences. At each invocation the lead still verifies availability,
 capabilities, billing basis, and freshness. A fresh download does not prove the
-upstream price was recently verified. The example GPT-6 host names remain unpriced
-if the source has no exact match.
+upstream price was recently verified.
+
+`host-aliases.json` (Claude Code alias to API model ID) is **not** refreshed
+automatically, because no public feed publishes that mapping. Update it and its
+`verified_at` date by hand when Anthropic ships a model that an alias moves to.
+Until then the helper prices the alias at the previous model and shows the
+verification date.
 
 From the repository root:
 
@@ -36,7 +41,9 @@ when validation fails instead of weakening the validator to accept bad data.
 GitHub updates the repository; it cannot update an arbitrary local checkout.
 For an installed symlink, run `git pull --ff-only` in this repository when it has
 no conflicting local changes. A copied installation needs to be copied again.
-The skill's invocation-time freshness check catches installations left stale.
+The helper marks estimates from a catalog older than seven days as
+`estimated_stale` and refuses one older than 30 days, so a missed schedule or an
+unpulled checkout degrades visibly instead of blocking the skill.
 `refresh_models.py` may be run from an installed copy to refresh just its own
 catalog when network access and write permissions allow it. Record that as a
 local refresh, not a GitHub publication.
