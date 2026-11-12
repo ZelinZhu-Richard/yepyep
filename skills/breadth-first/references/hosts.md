@@ -10,8 +10,9 @@ second agent framework or call paid external APIs as a fallback.
   working directory up to the repository root) or `$HOME/.agents/skills/` for a
   personal installation. Symlinked skill folders are followed.
 - Invoke with `$breadth-first` and the task.
-- Roles: lead GPT-6 Astra, collectors GPT-6 Luna, consolidator and challenger
-  GPT-6.1 Sol. Apply them only when the session can select those models.
+- Roles: lead GPT-6 Astra, collectors GPT-6 Luna, consolidators and challengers
+  GPT-6.1 Sol. Apply them only when the session can select those models. The
+  consolidator and challenger caps stay separate even though the model is shared.
 - A subagent's model is resolved from an explicit value in the spawn request,
   then `agents.default_subagent_model`, then the parent's model. Pass the model
   explicitly for every worker; otherwise collectors silently inherit the
@@ -33,9 +34,9 @@ second agent framework or call paid external APIs as a fallback.
 - Invoke with `/breadth-first` and the task, or ask Claude to use the skill.
 - Keep the orchestrator in the main conversation; this skill deliberately has no
   `context: fork`.
-- Roles: the lead is the session model, Fable or Opus. Collectors run on
-  `haiku`. Consolidator and challenger run one tier below the lead: `opus` when
-  the lead is Fable, `sonnet` when the lead is Opus.
+- Roles: Fable leads (it is the session model). Collectors run on `haiku`,
+  consolidators on `sonnet`, challengers on `opus`. Under an Opus lead keep the
+  same three tiers.
 - **Always pass `model` on every Agent call.** With `model` omitted the host
   chooses, and that choice is often not the cheap tier.
 - **Do not use the Explore agent type as the cheap collector.** It runs on the
@@ -48,7 +49,8 @@ second agent framework or call paid external APIs as a fallback.
   its verification date in the output.
 - Default concurrency is 20 running subagents per session
   (`CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS`); a spawn beyond it fails rather than
-  queues. Run waves below the limit and leave slots for reviewers.
+  queues. A 100-collector run therefore needs at least five waves; leave slots
+  for reviewers.
 - Subagents can spawn their own subagents by default. The worker and reviewer
   briefs forbid it so that only the lead allocates work and budget.
 - A subagent may lack tools the lead has, such as MCP connectors. State the

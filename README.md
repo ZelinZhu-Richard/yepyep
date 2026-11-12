@@ -7,16 +7,18 @@ ideas without discovering different ones.
 **Lead plans → inexpensive capable workers explore → a stronger model
 consolidates → a fresh-context challenger attacks the result → lead decides.**
 
-| Role | Codex | Claude Code |
-| --- | --- | --- |
-| Lead | GPT-6 Astra | Fable or Opus |
-| Collectors | GPT-6 Luna | Haiku |
-| Consolidator and challenger | GPT-6.1 Sol | Opus under a Fable lead, Sonnet under an Opus lead |
+| Role | Codex | Claude Code | Hard cap per run | Typical |
+| --- | --- | --- | --- | --- |
+| Lead | GPT-6 Astra | Fable | 1 | 1 |
+| Collectors | GPT-6 Luna | Haiku | 100 | 20–30 |
+| Consolidators | GPT-6.1 Sol | Sonnet | 20 | 5–10 |
+| Challengers | GPT-6.1 Sol | Opus | 5, in at most 2 rounds | 2–3 |
 
 ## The workflow
 
 1. First ask: **What is the cheapest capable subagent model actually available in
-   this session?** Check runtime capabilities, billing, and price freshness.
+   this session?** Normally the tier table answers it; the price helper is only
+   for hosts where a tier is missing.
 2. Use 2–3 planning rounds of three self-directed questions each. Every round's
    questions build on the previous round's answers: the field, then its sources,
    then the gaps and counterevidence.
@@ -27,11 +29,12 @@ consolidates → a fresh-context challenger attacks the result → lead decides.
    its own angle and seed queries. Workers write evidence to files and return
    short summaries, so the lead's context stays small. Queue work in waves when
    the host limits concurrency.
-5. A stronger consolidator deduplicates, assesses evidence, and explains
-   exclusions. A challenger then tries to break the shortlist and rescue niche
-   findings that were cut for being unusual rather than unsupported.
+5. Consolidators deduplicate, assess evidence, and explain exclusions.
+   Challengers get two rounds and no more: round 1 sends objections back to the
+   consolidators, who revise; round 2 writes the decision brief for the lead.
 6. The lead checks decisive evidence, fills important gaps within budget, and
-   delivers the answer and recommendation with coverage limits.
+   delivers the answer and recommendation with coverage limits. It does not pause
+   for approval before dispatch.
 
 The roles are preferences, used when the runtime can select those models. The
 skill cannot change the active lead model, so select your lead in the host

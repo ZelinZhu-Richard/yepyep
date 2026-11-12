@@ -9,45 +9,39 @@ More reasoning effort deepens an analysis; it does not widen its coverage.
 This workflow buys width on purpose: the lead plans, cheap workers scan many
 distinct slices, a stronger model consolidates and challenges, the lead decides.
 
-| Role | Does | Codex preference | Claude Code preference |
-| --- | --- | --- | --- |
-| Lead | Plans, sizes, checks, decides | GPT-6 Astra | Fable or Opus (the session model) |
-| Collector | Searches and extracts one slice | GPT-6 Luna | Haiku |
-| Consolidator | Dedupes, weighs evidence, shortlists | GPT-6.1 Sol | One tier below the lead: Opus under Fable, Sonnet under Opus |
-| Challenger | Attacks the shortlist, rescues wrongly cut items | GPT-6.1 Sol | Same tier as the consolidator, fresh context |
+| Role | Does | Codex | Claude Code | Hard cap per run | Typical |
+| --- | --- | --- | --- | --- | --- |
+| Lead | Plans, sizes, checks, decides | GPT-6 Astra | Fable | 1 | 1 |
+| Collector | Searches and extracts one slice | GPT-6 Luna | Haiku | 100 | 20–30 |
+| Consolidator | Dedupes, weighs evidence, shortlists | GPT-6.1 Sol | Sonnet | 20 | 5–10 |
+| Challenger | Attacks the consolidation, then briefs the lead | GPT-6.1 Sol | Opus | 5, in at most 2 rounds | 2–3 |
 
-These are the user's role preferences, not permanent price or quality claims.
-The skill cannot change the lead's own model; the user selects it before invoking.
+The caps are totals for one invocation, counting retries and follow-up waves.
+They are ceilings, not targets: agent count still follows from the work. The
+skill cannot change the lead's own model; the user selects it before invoking.
+If the session lead is not the preferred one, keep the other tiers and say so.
 
-## 0. First action: select the cheapest capable workers
+## 0. First action: fix the model tiers
 
 Before decomposing the task, ask: **"What is the cheapest model I can actually use
 as a subagent here that can reliably do this work?"**
 
-1. Read the matching section of [host adapters](references/hosts.md) and inspect
-   the live delegation tool: which model values it accepts, the concurrency
-   limit, and which tools a subagent gets. A public model list is not availability.
-2. Price the candidates that are actually selectable, from this skill's directory:
+Read the matching section of [host adapters](references/hosts.md) and inspect
+the live delegation tool: which model values it accepts, the concurrency limit,
+and which tools a subagent gets.
 
-   ```sh
-   python3 scripts/rank_models.py --model CANDIDATE --model ANOTHER \
-     --input-tokens 60000 --output-tokens 3000
-   ```
+- **The table's models are selectable** (the normal case): use them. No price
+  lookup is needed; the tiers are the answer.
+- **A tier is missing or the host is unfamiliar:** pick the cheapest selectable
+  model that has the search/fetch tools, enough context for the pages it reads,
+  and reliable structured output. `scripts/rank_models.py` gives a token-price
+  estimate for candidates; see [model selection](references/model-selection.md).
+  Missing prices never block the work.
 
-   Use token counts that resemble one work packet. Search workers are
-   input-heavy (fetched pages), so input price usually dominates. The helper
-   resolves Claude Code aliases, labels stale data, and never treats an unknown
-   price as zero. Details: [model selection](references/model-selection.md).
-3. Pick the cheapest candidate that can do the packet: it needs the search/fetch
-   tools, enough context for the pages it reads, and reliable structured output.
-   Cheapest per token is not cheapest per reliable result; a model that needs
-   retries or produces evidence the reviewer must redo costs more.
-4. If the preferred collector above is selectable and nothing cheaper is capable,
-   use it. If prices are unavailable, use the host's lowest tier or the preferred
-   collector and say the cost is unverified. Missing prices never block the work.
-
-API prices are a proxy. Under a subscription the real constraint is usage limits,
-so prefer the lower tier and say which billing basis applies.
+Wide collection is cheap by design: per token, a collector costs a small
+fraction of a consolidator and far less than the lead, so spend agents on
+breadth and keep the expensive tiers few. Paid search calls and subscription
+usage limits can matter more than collector tokens; bound searches per packet.
 
 ## 1. Plan with self-questioning rounds
 
@@ -88,10 +82,11 @@ complaints, counterevidence), seed queries, native-language terms for
 non-English platforms, and recency or sort hints. Two cheap workers given the
 same query return the same top results.
 
-State the envelope before dispatch: packets, workers per wave, models, and the
-budget reserved for review plus one follow-up wave. Respect explicit user limits
-and do not silently exceed the stated envelope. Run in waves under the host's
-concurrency limit, counting reviewers.
+State the envelope in one or two lines (packets, agents per tier, waves), then
+dispatch without waiting for approval. Respect explicit user limits and never
+exceed the hard caps. Run in waves under the host's concurrency limit. Before
+dispatching collectors, reserve the consolidator and challenger slots the
+review will need.
 
 ## 3. Dispatch and collect traceable evidence
 
@@ -109,8 +104,11 @@ summaries are compressed.
 Evidence rules:
 
 - Record URL, date, and a quotation or precise paraphrase for every finding.
-- A search snippet is a lead, not an inspected source; label it. Many social
-  platforms block fetching, so expect snippet-only evidence there and say so.
+- A search snippet is a lead, not an inspected source; label it.
+- Many social platforms block plain fetching. If a platform-access tool such as
+  agent-reach is installed, the lead confirms once that it works, then names it
+  and its usage in the brief of every packet that needs it. Otherwise expect
+  snippet-only evidence there and say so.
 - Trace reposts to a common origin. Repetition is not independent support.
 - Report inaccessible sources, failed searches, and unfinished work plainly.
   Never fill gaps with guesses or fabricate access.
@@ -120,34 +118,44 @@ Evidence rules:
 If a packet comes back unreliable, escalate it one tier instead of retrying the
 same model with the same brief.
 
-## 4. Consolidate, then challenge
+## 4. Consolidate, then challenge in two rounds
 
-Use a model stronger than the collectors. Two passes, each from a fresh context:
+Every agent here starts from a fresh context and reads the evidence files.
 
-**Consolidator** receives the ledger, the decision criteria, and the evidence
-files. It returns distinct approaches with merged duplicates and kept
-provenance; evidence strength and shared-origin dependence; contradictions; a
-shortlist with tradeoffs; every exclusion with a reason and evidence IDs; and
-remaining gaps.
+1. **Consolidate.** Consolidators receive the ledger, the decision criteria, and
+   the evidence files. Each returns distinct approaches with merged duplicates
+   and kept provenance; evidence strength and shared-origin dependence;
+   contradictions; a shortlist with tradeoffs; every exclusion with a reason and
+   evidence IDs; and remaining gaps. Split a large corpus by topic across
+   several consolidators, then have one merge across topics with shared
+   evidence IDs.
+2. **Challenge round 1: advice to the consolidators.** Challengers try to break
+   the consolidation. Which shortlisted items rest on weak, single-origin, or
+   survivorship-biased evidence? Which excluded or niche items were cut for
+   being unpopular rather than unsupported? What did the coverage map miss?
+   They spot-check the sources behind the most decisive claims and return
+   ranked, specific objections.
+3. **Revise.** A consolidator applies the objections it can support from the
+   evidence and marks the ones it rejects, with reasons. It does not simply
+   defer; an objection needs evidence too.
+4. **Challenge round 2: brief for the lead.** A challenger reads the revision
+   and writes the decision brief: the surviving shortlist with tradeoffs,
+   credible niche findings, what remains disputed and why, and the gaps worth a
+   follow-up wave.
 
-**Challenger** receives the consolidator's output and the evidence files, with
-the instruction to break it: which shortlisted items rest on weak, single-origin,
-or survivorship-biased evidence? Which excluded or niche items were cut for
-being unpopular rather than unsupported? What did the coverage map miss? It
-spot-checks the sources behind the most decisive claims itself.
+There is no third round. Unresolved disagreement goes to the lead as
+disagreement. Challengers across both rounds count against the challenger cap;
+revising consolidators count against the consolidator cap. For a small corpus,
+one consolidator and one challenger per round is enough.
 
-For a small corpus (a handful of packets) one reviewer may do both jobs in one
-pass. If the corpus exceeds one context, consolidate per topic first, then
-across topics with shared evidence IDs.
-
-Agreement is not proof. Worker count, popularity, and polished prose do not
+Agreement is not proof. Agent count, popularity, and polished prose do not
 substitute for independent evidence. Reviewers recommend follow-up; only the
 lead spends budget.
 
 ## 5. Lead checks, decides, and reports
 
-Read the consolidation and the challenge side by side. Inspect the primary
-sources behind claims that decide the answer or that the challenger disputed.
+Read the round-2 brief with the revised consolidation beside it. Inspect the
+primary sources behind claims that decide the answer or remain disputed.
 Commission one bounded follow-up wave only for gaps or contradictions likely to
 change the answer.
 

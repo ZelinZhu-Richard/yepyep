@@ -82,7 +82,20 @@ agreement. Do not silently omit inconvenient evidence. Do not spawn agents or
 change the budget. The lead agent makes the final decision.
 ```
 
-## Challenger brief
+## Consolidator revision brief
+
+```text
+Your consolidation: (file)
+Challenger objections: (files)
+Evidence files:
+Output file:
+
+Revise the consolidation. Apply each objection the evidence supports. For each
+one you reject, keep it listed with your reason and evidence IDs. Do not drop
+disputed items silently and do not defer to an objection that lacks evidence.
+```
+
+## Challenger brief, round 1 (advice to the consolidators)
 
 ```text
 User goal and decision criteria:
@@ -101,6 +114,22 @@ Your job is to find where this consolidation is wrong, not to improve its prose.
 Return objections ranked by how much they would change the decision, each with
 evidence IDs, and say plainly where the consolidation holds up. Do not spawn
 agents or change the budget.
+```
+
+## Challenger brief, round 2 (decision brief for the lead)
+
+```text
+User goal and decision criteria:
+Revised consolidation and the round-1 objections:
+Evidence files:
+Output file:
+
+This is the final review round. Write the brief the lead will decide from:
+the shortlist that survived, with tradeoffs and evidence IDs; credible niche
+findings worth keeping; each point still disputed, with both positions and the
+evidence for each; and the gaps where one follow-up wave would most change the
+answer. State disagreement as disagreement. Do not spawn agents or change the
+budget.
 ```
 
 ## Lead's completion record
