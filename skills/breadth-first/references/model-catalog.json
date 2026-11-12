@@ -1,0 +1,2545 @@
+{
+  "schema_version": 1,
+  "fetched_at": "2026-11-12T19:33:20Z",
+  "price_basis": "community_reported_direct_api_standard_uncached",
+  "source": {
+    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
+    "sha256": "ba2e281867ab082918fc007362f796af2ca5b3ac998169c2a0a9824a62363595"
+  },
+  "skipped_unpriced_or_zero_price_entries": 1,
+  "models": [
+    {
+      "id": "chat-latest",
+      "provider": "openai",
+      "input_usd_per_million": 5.0,
+      "output_usd_per_million": 30.0,
+      "reported_max_input_tokens": 400000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 5e-07
+      }
+    },
+    {
+      "id": "claude-fable-5",
+      "provider": "anthropic",
+      "input_usd_per_million": 10.0,
+      "output_usd_per_million": 50.0,
+      "reported_max_input_tokens": 1000000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 1.25e-05,
+        "cache_creation_input_token_cost_above_1hr": 2e-05,
+        "cache_creation_input_token_cost_batches": 6.25e-06,
+        "cache_read_input_token_cost": 1e-06,
+        "cache_read_input_token_cost_batches": 5e-07,
+        "input_cost_per_token_batches": 5e-06,
+        "output_cost_per_token_batches": 2.5e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-fable-5-1",
+      "provider": "anthropic",
+      "input_usd_per_million": 10.0,
+      "output_usd_per_million": 50.0,
+      "reported_max_input_tokens": 1000000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 1.25e-05,
+        "cache_creation_input_token_cost_above_1hr": 2e-05,
+        "cache_creation_input_token_cost_batches": 6.25e-06,
+        "cache_read_input_token_cost": 2.5e-07,
+        "cache_read_input_token_cost_batches": 1.25e-07,
+        "input_cost_per_token_batches": 5e-06,
+        "output_cost_per_token_batches": 2.5e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-fable-5-2",
+      "provider": "anthropic",
+      "input_usd_per_million": 8.0,
+      "output_usd_per_million": 40.0,
+      "reported_max_input_tokens": 1000000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 1e-05,
+        "cache_creation_input_token_cost_above_1hr": 1.6e-05,
+        "cache_creation_input_token_cost_batches": 5e-06,
+        "cache_read_input_token_cost": 2e-07,
+        "cache_read_input_token_cost_batches": 1e-07,
+        "input_cost_per_token_batches": 4e-06,
+        "output_cost_per_token_batches": 2e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-haiku-4-5",
+      "provider": "anthropic",
+      "input_usd_per_million": 1.0,
+      "output_usd_per_million": 5.0,
+      "reported_max_input_tokens": 200000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 1.25e-06,
+        "cache_creation_input_token_cost_above_1hr": 2e-06,
+        "cache_creation_input_token_cost_batches": 6.25e-07,
+        "cache_read_input_token_cost": 1e-07,
+        "cache_read_input_token_cost_batches": 5e-08,
+        "input_cost_per_token_batches": 5e-07,
+        "output_cost_per_token_batches": 2.5e-06
+      }
+    },
+    {
+      "id": "claude-haiku-4-5-20251001",
+      "provider": "anthropic",
+      "input_usd_per_million": 1.0,
+      "output_usd_per_million": 5.0,
+      "reported_max_input_tokens": 200000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 1.25e-06,
+        "cache_creation_input_token_cost_above_1hr": 2e-06,
+        "cache_creation_input_token_cost_batches": 6.25e-07,
+        "cache_read_input_token_cost": 1e-07,
+        "cache_read_input_token_cost_batches": 5e-08,
+        "input_cost_per_token_batches": 5e-07,
+        "output_cost_per_token_batches": 2.5e-06
+      }
+    },
+    {
+      "id": "claude-haiku-5-5",
+      "provider": "anthropic",
+      "input_usd_per_million": 0.1,
+      "output_usd_per_million": 0.5,
+      "reported_max_input_tokens": 1000000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 1.25e-07,
+        "cache_creation_input_token_cost_above_100k_tokens": 6.25e-07,
+        "cache_creation_input_token_cost_above_100k_tokens_batches": 3.125e-07,
+        "cache_creation_input_token_cost_above_1hr": 2e-07,
+        "cache_creation_input_token_cost_above_1hr_above_100k_tokens": 1e-06,
+        "cache_creation_input_token_cost_batches": 6.25e-08,
+        "cache_read_input_token_cost": 1e-08,
+        "cache_read_input_token_cost_above_100k_tokens": 5e-08,
+        "cache_read_input_token_cost_above_100k_tokens_batches": 2.5e-08,
+        "cache_read_input_token_cost_batches": 5e-09,
+        "input_cost_per_token_above_100k_tokens": 5e-07,
+        "input_cost_per_token_above_100k_tokens_batches": 2.5e-07,
+        "input_cost_per_token_batches": 5e-08,
+        "output_cost_per_token_above_100k_tokens": 2.5e-06,
+        "output_cost_per_token_above_100k_tokens_batches": 1.25e-06,
+        "output_cost_per_token_batches": 2.5e-07,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-mythos-5",
+      "provider": "anthropic",
+      "input_usd_per_million": 10.0,
+      "output_usd_per_million": 50.0,
+      "reported_max_input_tokens": 1000000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 1.25e-05,
+        "cache_creation_input_token_cost_above_1hr": 2e-05,
+        "cache_creation_input_token_cost_batches": 6.25e-06,
+        "cache_read_input_token_cost": 1e-06,
+        "cache_read_input_token_cost_batches": 5e-07,
+        "input_cost_per_token_batches": 5e-06,
+        "output_cost_per_token_batches": 2.5e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-mythos-5-1",
+      "provider": "anthropic",
+      "input_usd_per_million": 10.0,
+      "output_usd_per_million": 50.0,
+      "reported_max_input_tokens": 1000000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 1.25e-05,
+        "cache_creation_input_token_cost_above_1hr": 2e-05,
+        "cache_creation_input_token_cost_batches": 6.25e-06,
+        "cache_read_input_token_cost": 2.5e-07,
+        "cache_read_input_token_cost_batches": 1.25e-07,
+        "input_cost_per_token_batches": 5e-06,
+        "output_cost_per_token_batches": 2.5e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-mythos-5-2",
+      "provider": "anthropic",
+      "input_usd_per_million": 8.0,
+      "output_usd_per_million": 40.0,
+      "reported_max_input_tokens": 1000000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 1e-05,
+        "cache_creation_input_token_cost_above_1hr": 1.6e-05,
+        "cache_creation_input_token_cost_batches": 5e-06,
+        "cache_read_input_token_cost": 2e-07,
+        "cache_read_input_token_cost_batches": 1e-07,
+        "input_cost_per_token_batches": 4e-06,
+        "output_cost_per_token_batches": 2e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-mythos-preview",
+      "provider": "anthropic",
+      "input_usd_per_million": 10.0,
+      "output_usd_per_million": 50.0,
+      "reported_max_input_tokens": 1000000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 1.25e-05,
+        "cache_creation_input_token_cost_above_1hr": 2e-05,
+        "cache_read_input_token_cost": 1e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-opus-4-5",
+      "provider": "anthropic",
+      "input_usd_per_million": 5.0,
+      "output_usd_per_million": 25.0,
+      "reported_max_input_tokens": 200000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 6.25e-06,
+        "cache_creation_input_token_cost_above_1hr": 1e-05,
+        "cache_creation_input_token_cost_batches": 3.125e-06,
+        "cache_read_input_token_cost": 5e-07,
+        "cache_read_input_token_cost_batches": 2.5e-07,
+        "input_cost_per_token_batches": 2.5e-06,
+        "output_cost_per_token_batches": 1.25e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-opus-4-5-20251101",
+      "provider": "anthropic",
+      "input_usd_per_million": 5.0,
+      "output_usd_per_million": 25.0,
+      "reported_max_input_tokens": 200000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 6.25e-06,
+        "cache_creation_input_token_cost_above_1hr": 1e-05,
+        "cache_creation_input_token_cost_batches": 3.125e-06,
+        "cache_read_input_token_cost": 5e-07,
+        "cache_read_input_token_cost_batches": 2.5e-07,
+        "input_cost_per_token_batches": 2.5e-06,
+        "output_cost_per_token_batches": 1.25e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-opus-4-6",
+      "provider": "anthropic",
+      "input_usd_per_million": 5.0,
+      "output_usd_per_million": 25.0,
+      "reported_max_input_tokens": 1000000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 6.25e-06,
+        "cache_creation_input_token_cost_above_1hr": 1e-05,
+        "cache_creation_input_token_cost_batches": 3.125e-06,
+        "cache_read_input_token_cost": 5e-07,
+        "cache_read_input_token_cost_batches": 2.5e-07,
+        "input_cost_per_token_batches": 2.5e-06,
+        "output_cost_per_token_batches": 1.25e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-opus-4-6-20260205",
+      "provider": "anthropic",
+      "input_usd_per_million": 5.0,
+      "output_usd_per_million": 25.0,
+      "reported_max_input_tokens": 1000000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 6.25e-06,
+        "cache_creation_input_token_cost_above_1hr": 1e-05,
+        "cache_creation_input_token_cost_batches": 3.125e-06,
+        "cache_read_input_token_cost": 5e-07,
+        "cache_read_input_token_cost_batches": 2.5e-07,
+        "input_cost_per_token_batches": 2.5e-06,
+        "output_cost_per_token_batches": 1.25e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-opus-4-7",
+      "provider": "anthropic",
+      "input_usd_per_million": 5.0,
+      "output_usd_per_million": 25.0,
+      "reported_max_input_tokens": 1000000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 6.25e-06,
+        "cache_creation_input_token_cost_above_1hr": 1e-05,
+        "cache_creation_input_token_cost_batches": 3.125e-06,
+        "cache_read_input_token_cost": 5e-07,
+        "cache_read_input_token_cost_batches": 2.5e-07,
+        "input_cost_per_token_batches": 2.5e-06,
+        "output_cost_per_token_batches": 1.25e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-opus-4-7-20260416",
+      "provider": "anthropic",
+      "input_usd_per_million": 5.0,
+      "output_usd_per_million": 25.0,
+      "reported_max_input_tokens": 1000000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 6.25e-06,
+        "cache_creation_input_token_cost_above_1hr": 1e-05,
+        "cache_creation_input_token_cost_batches": 3.125e-06,
+        "cache_read_input_token_cost": 5e-07,
+        "cache_read_input_token_cost_batches": 2.5e-07,
+        "input_cost_per_token_batches": 2.5e-06,
+        "output_cost_per_token_batches": 1.25e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-opus-4-8",
+      "provider": "anthropic",
+      "input_usd_per_million": 5.0,
+      "output_usd_per_million": 25.0,
+      "reported_max_input_tokens": 1000000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 6.25e-06,
+        "cache_creation_input_token_cost_above_1hr": 1e-05,
+        "cache_creation_input_token_cost_batches": 3.125e-06,
+        "cache_read_input_token_cost": 5e-07,
+        "cache_read_input_token_cost_batches": 2.5e-07,
+        "input_cost_per_token_batches": 2.5e-06,
+        "output_cost_per_token_batches": 1.25e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-opus-5",
+      "provider": "anthropic",
+      "input_usd_per_million": 5.0,
+      "output_usd_per_million": 25.0,
+      "reported_max_input_tokens": 1000000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 6.25e-06,
+        "cache_creation_input_token_cost_above_1hr": 1e-05,
+        "cache_creation_input_token_cost_batches": 3.125e-06,
+        "cache_read_input_token_cost": 5e-07,
+        "cache_read_input_token_cost_batches": 2.5e-07,
+        "input_cost_per_token_batches": 2.5e-06,
+        "output_cost_per_token_batches": 1.25e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-opus-5-5",
+      "provider": "anthropic",
+      "input_usd_per_million": 4.0,
+      "output_usd_per_million": 20.0,
+      "reported_max_input_tokens": 1000000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 5e-06,
+        "cache_creation_input_token_cost_above_1hr": 8e-06,
+        "cache_creation_input_token_cost_batches": 2.5e-06,
+        "cache_read_input_token_cost": 2e-07,
+        "cache_read_input_token_cost_batches": 1e-07,
+        "input_cost_per_token_batches": 2e-06,
+        "output_cost_per_token_batches": 1e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-sonnet-4-5",
+      "provider": "anthropic",
+      "input_usd_per_million": 3.0,
+      "output_usd_per_million": 15.0,
+      "reported_max_input_tokens": 200000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 3.75e-06,
+        "cache_creation_input_token_cost_above_1hr": 6e-06,
+        "cache_creation_input_token_cost_batches": 1.875e-06,
+        "cache_read_input_token_cost": 3e-07,
+        "cache_read_input_token_cost_batches": 1.5e-07,
+        "input_cost_per_token_batches": 1.5e-06,
+        "output_cost_per_token_batches": 7.5e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-sonnet-4-5-20250929",
+      "provider": "anthropic",
+      "input_usd_per_million": 3.0,
+      "output_usd_per_million": 15.0,
+      "reported_max_input_tokens": 200000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 3.75e-06,
+        "cache_creation_input_token_cost_above_1hr": 6e-06,
+        "cache_creation_input_token_cost_batches": 1.875e-06,
+        "cache_read_input_token_cost": 3e-07,
+        "cache_read_input_token_cost_batches": 1.5e-07,
+        "input_cost_per_token_batches": 1.5e-06,
+        "output_cost_per_token_batches": 7.5e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-sonnet-4-6",
+      "provider": "anthropic",
+      "input_usd_per_million": 3.0,
+      "output_usd_per_million": 15.0,
+      "reported_max_input_tokens": 1000000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 3.75e-06,
+        "cache_creation_input_token_cost_above_1hr": 6e-06,
+        "cache_creation_input_token_cost_batches": 1.875e-06,
+        "cache_read_input_token_cost": 3e-07,
+        "cache_read_input_token_cost_batches": 1.5e-07,
+        "input_cost_per_token_batches": 1.5e-06,
+        "output_cost_per_token_batches": 7.5e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-sonnet-5",
+      "provider": "anthropic",
+      "input_usd_per_million": 2.0,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 1000000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 2.5e-06,
+        "cache_creation_input_token_cost_above_1hr": 4e-06,
+        "cache_creation_input_token_cost_batches": 1.25e-06,
+        "cache_read_input_token_cost": 2e-07,
+        "cache_read_input_token_cost_batches": 1e-07,
+        "input_cost_per_token_batches": 1e-06,
+        "output_cost_per_token_batches": 5e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "claude-sonnet-5-5",
+      "provider": "anthropic",
+      "input_usd_per_million": 2.0,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 1000000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 2.5e-06,
+        "cache_creation_input_token_cost_above_1hr": 4e-06,
+        "cache_creation_input_token_cost_batches": 1.25e-06,
+        "cache_read_input_token_cost": 1e-07,
+        "cache_read_input_token_cost_batches": 5e-08,
+        "input_cost_per_token_batches": 1e-06,
+        "output_cost_per_token_batches": 5e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "computer-use-preview",
+      "provider": "openai",
+      "input_usd_per_million": 3.0,
+      "output_usd_per_million": 12.0,
+      "reported_max_input_tokens": 8192,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {}
+    },
+    {
+      "id": "computer-use-preview-2025-03-11",
+      "provider": "openai",
+      "input_usd_per_million": 3.0,
+      "output_usd_per_million": 12.0,
+      "reported_max_input_tokens": 8192,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {}
+    },
+    {
+      "id": "daybreak-blue-latest",
+      "provider": "openai",
+      "input_usd_per_million": 4.0,
+      "output_usd_per_million": 20.0,
+      "reported_max_input_tokens": 922000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 5e-06,
+        "cache_creation_input_token_cost_above_272k_tokens": 1e-05,
+        "cache_read_input_token_cost": 4e-07,
+        "cache_read_input_token_cost_above_272k_tokens": 8e-07,
+        "input_cost_per_token_above_272k_tokens": 8e-06,
+        "output_cost_per_token_above_272k_tokens": 3e-05
+      }
+    },
+    {
+      "id": "daybreak-red-latest",
+      "provider": "openai",
+      "input_usd_per_million": 12.5,
+      "output_usd_per_million": 75.0,
+      "reported_max_input_tokens": 272000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 1.5625e-05,
+        "cache_creation_input_token_cost_above_272k_tokens": 3.125e-05,
+        "cache_read_input_token_cost": 1.25e-06,
+        "cache_read_input_token_cost_above_272k_tokens": 2.5e-06,
+        "input_cost_per_token_above_272k_tokens": 2.5e-05,
+        "output_cost_per_token_above_272k_tokens": 0.0001125
+      }
+    },
+    {
+      "id": "ft:gpt-3.5-turbo",
+      "provider": "openai",
+      "input_usd_per_million": 3.0,
+      "output_usd_per_million": 6.0,
+      "reported_max_input_tokens": 16385,
+      "reported_function_calling": null,
+      "other_reported_cost_fields": {
+        "input_cost_per_token_batches": 1.5e-06,
+        "output_cost_per_token_batches": 3e-06
+      }
+    },
+    {
+      "id": "ft:gpt-3.5-turbo-0125",
+      "provider": "openai",
+      "input_usd_per_million": 3.0,
+      "output_usd_per_million": 6.0,
+      "reported_max_input_tokens": 16385,
+      "reported_function_calling": null,
+      "other_reported_cost_fields": {}
+    },
+    {
+      "id": "ft:gpt-3.5-turbo-0613",
+      "provider": "openai",
+      "input_usd_per_million": 3.0,
+      "output_usd_per_million": 6.0,
+      "reported_max_input_tokens": 4096,
+      "reported_function_calling": null,
+      "other_reported_cost_fields": {}
+    },
+    {
+      "id": "ft:gpt-3.5-turbo-1106",
+      "provider": "openai",
+      "input_usd_per_million": 3.0,
+      "output_usd_per_million": 6.0,
+      "reported_max_input_tokens": 16385,
+      "reported_function_calling": null,
+      "other_reported_cost_fields": {}
+    },
+    {
+      "id": "ft:gpt-4-0613",
+      "provider": "openai",
+      "input_usd_per_million": 30.0,
+      "output_usd_per_million": 60.0,
+      "reported_max_input_tokens": 8192,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {}
+    },
+    {
+      "id": "ft:gpt-4.1-2025-04-14",
+      "provider": "openai",
+      "input_usd_per_million": 3.0,
+      "output_usd_per_million": 12.0,
+      "reported_max_input_tokens": 1047576,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 7.5e-07,
+        "cache_read_input_token_cost_batches": 5e-07,
+        "input_cost_per_token_batches": 1.5e-06,
+        "output_cost_per_token_batches": 6e-06
+      }
+    },
+    {
+      "id": "ft:gpt-4.1-mini-2025-04-14",
+      "provider": "openai",
+      "input_usd_per_million": 0.8,
+      "output_usd_per_million": 3.2,
+      "reported_max_input_tokens": 1047576,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 2e-07,
+        "cache_read_input_token_cost_batches": 1e-07,
+        "input_cost_per_token_batches": 4e-07,
+        "output_cost_per_token_batches": 1.6e-06
+      }
+    },
+    {
+      "id": "ft:gpt-4.1-nano-2025-04-14",
+      "provider": "openai",
+      "input_usd_per_million": 0.2,
+      "output_usd_per_million": 0.8,
+      "reported_max_input_tokens": 1047576,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 5e-08,
+        "cache_read_input_token_cost_batches": 2.5e-08,
+        "input_cost_per_token_batches": 1e-07,
+        "output_cost_per_token_batches": 4e-07
+      }
+    },
+    {
+      "id": "ft:gpt-4o-2024-08-06",
+      "provider": "openai",
+      "input_usd_per_million": 3.75,
+      "output_usd_per_million": 15.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.875e-06,
+        "cache_read_input_token_cost_batches": 9e-07,
+        "input_cost_per_token_batches": 2.225e-06,
+        "output_cost_per_token_batches": 1.25e-05
+      }
+    },
+    {
+      "id": "ft:gpt-4o-2024-11-20",
+      "provider": "openai",
+      "input_usd_per_million": 3.75,
+      "output_usd_per_million": 15.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 1.875e-06
+      }
+    },
+    {
+      "id": "ft:gpt-4o-mini-2024-07-18",
+      "provider": "openai",
+      "input_usd_per_million": 0.3,
+      "output_usd_per_million": 1.2,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.5e-07,
+        "cache_read_input_token_cost_batches": 7.5e-08,
+        "input_cost_per_token_batches": 1.5e-07,
+        "output_cost_per_token_batches": 6e-07
+      }
+    },
+    {
+      "id": "ft:o4-mini-2025-04-16",
+      "provider": "openai",
+      "input_usd_per_million": 4.0,
+      "output_usd_per_million": 16.0,
+      "reported_max_input_tokens": 200000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1e-06,
+        "cache_read_input_token_cost_batches": 5e-07,
+        "input_cost_per_token_batches": 2e-06,
+        "output_cost_per_token_batches": 8e-06
+      }
+    },
+    {
+      "id": "gpt-3.5-turbo",
+      "provider": "openai",
+      "input_usd_per_million": 0.5,
+      "output_usd_per_million": 1.5,
+      "reported_max_input_tokens": 16385,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {}
+    },
+    {
+      "id": "gpt-3.5-turbo-0125",
+      "provider": "openai",
+      "input_usd_per_million": 0.5,
+      "output_usd_per_million": 1.5,
+      "reported_max_input_tokens": 16385,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "input_cost_per_token_batches": 2.5e-07,
+        "output_cost_per_token_batches": 7.5e-07
+      }
+    },
+    {
+      "id": "gpt-3.5-turbo-1106",
+      "provider": "openai",
+      "input_usd_per_million": 1.0,
+      "output_usd_per_million": 2.0,
+      "reported_max_input_tokens": 16385,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "input_cost_per_token_batches": 1e-06,
+        "output_cost_per_token_batches": 2e-06
+      }
+    },
+    {
+      "id": "gpt-3.5-turbo-16k",
+      "provider": "openai",
+      "input_usd_per_million": 3.0,
+      "output_usd_per_million": 4.0,
+      "reported_max_input_tokens": 16385,
+      "reported_function_calling": null,
+      "other_reported_cost_fields": {}
+    },
+    {
+      "id": "gpt-4",
+      "provider": "openai",
+      "input_usd_per_million": 30.0,
+      "output_usd_per_million": 60.0,
+      "reported_max_input_tokens": 8192,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {}
+    },
+    {
+      "id": "gpt-4-0613",
+      "provider": "openai",
+      "input_usd_per_million": 30.0,
+      "output_usd_per_million": 60.0,
+      "reported_max_input_tokens": 8192,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "input_cost_per_token_batches": 1.5e-05,
+        "output_cost_per_token_batches": 3e-05
+      }
+    },
+    {
+      "id": "gpt-4-1106-preview",
+      "provider": "openai",
+      "input_usd_per_million": 10.0,
+      "output_usd_per_million": 30.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {}
+    },
+    {
+      "id": "gpt-4-turbo",
+      "provider": "openai",
+      "input_usd_per_million": 10.0,
+      "output_usd_per_million": 30.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {}
+    },
+    {
+      "id": "gpt-4-turbo-2024-04-09",
+      "provider": "openai",
+      "input_usd_per_million": 10.0,
+      "output_usd_per_million": 30.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "input_cost_per_token_batches": 5e-06,
+        "output_cost_per_token_batches": 1.5e-05
+      }
+    },
+    {
+      "id": "gpt-4.1",
+      "provider": "openai",
+      "input_usd_per_million": 2.0,
+      "output_usd_per_million": 8.0,
+      "reported_max_input_tokens": 1047576,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 5e-07,
+        "cache_read_input_token_cost_priority": 8.75e-07,
+        "input_cost_per_token_batches": 1e-06,
+        "input_cost_per_token_priority": 3.5e-06,
+        "output_cost_per_token_batches": 4e-06,
+        "output_cost_per_token_priority": 1.4e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.025,
+          "search_context_size_low": 0.025,
+          "search_context_size_medium": 0.025
+        }
+      }
+    },
+    {
+      "id": "gpt-4.1-2025-04-14",
+      "provider": "openai",
+      "input_usd_per_million": 2.0,
+      "output_usd_per_million": 8.0,
+      "reported_max_input_tokens": 1047576,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 5e-07,
+        "cache_read_input_token_cost_priority": 8.75e-07,
+        "input_cost_per_token_batches": 1e-06,
+        "input_cost_per_token_priority": 3.5e-06,
+        "output_cost_per_token_batches": 4e-06,
+        "output_cost_per_token_priority": 1.4e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.025,
+          "search_context_size_low": 0.025,
+          "search_context_size_medium": 0.025
+        }
+      }
+    },
+    {
+      "id": "gpt-4.1-mini",
+      "provider": "openai",
+      "input_usd_per_million": 0.4,
+      "output_usd_per_million": 1.6,
+      "reported_max_input_tokens": 1047576,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1e-07,
+        "cache_read_input_token_cost_priority": 1.75e-07,
+        "input_cost_per_token_batches": 2e-07,
+        "input_cost_per_token_priority": 7e-07,
+        "output_cost_per_token_batches": 8e-07,
+        "output_cost_per_token_priority": 2.8e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.025,
+          "search_context_size_low": 0.025,
+          "search_context_size_medium": 0.025
+        }
+      }
+    },
+    {
+      "id": "gpt-4.1-mini-2025-04-14",
+      "provider": "openai",
+      "input_usd_per_million": 0.4,
+      "output_usd_per_million": 1.6,
+      "reported_max_input_tokens": 1047576,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1e-07,
+        "cache_read_input_token_cost_priority": 1.75e-07,
+        "input_cost_per_token_batches": 2e-07,
+        "input_cost_per_token_priority": 7e-07,
+        "output_cost_per_token_batches": 8e-07,
+        "output_cost_per_token_priority": 2.8e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.025,
+          "search_context_size_low": 0.025,
+          "search_context_size_medium": 0.025
+        }
+      }
+    },
+    {
+      "id": "gpt-4.1-nano",
+      "provider": "openai",
+      "input_usd_per_million": 0.1,
+      "output_usd_per_million": 0.4,
+      "reported_max_input_tokens": 1047576,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 2.5e-08,
+        "cache_read_input_token_cost_priority": 5e-08,
+        "input_cost_per_token_batches": 5e-08,
+        "input_cost_per_token_priority": 2e-07,
+        "output_cost_per_token_batches": 2e-07,
+        "output_cost_per_token_priority": 8e-07
+      }
+    },
+    {
+      "id": "gpt-4.1-nano-2025-04-14",
+      "provider": "openai",
+      "input_usd_per_million": 0.1,
+      "output_usd_per_million": 0.4,
+      "reported_max_input_tokens": 1047576,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 2.5e-08,
+        "cache_read_input_token_cost_priority": 5e-08,
+        "input_cost_per_token_batches": 5e-08,
+        "input_cost_per_token_priority": 2e-07,
+        "output_cost_per_token_batches": 2e-07,
+        "output_cost_per_token_priority": 8e-07
+      }
+    },
+    {
+      "id": "gpt-4o",
+      "provider": "openai",
+      "input_usd_per_million": 2.5,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.25e-06,
+        "cache_read_input_token_cost_priority": 2.125e-06,
+        "input_cost_per_token_batches": 1.25e-06,
+        "input_cost_per_token_priority": 4.25e-06,
+        "output_cost_per_token_batches": 5e-06,
+        "output_cost_per_token_priority": 1.7e-05
+      }
+    },
+    {
+      "id": "gpt-4o-2024-05-13",
+      "provider": "openai",
+      "input_usd_per_million": 5.0,
+      "output_usd_per_million": 15.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "input_cost_per_token_batches": 2.5e-06,
+        "input_cost_per_token_priority": 8.75e-06,
+        "output_cost_per_token_batches": 7.5e-06,
+        "output_cost_per_token_priority": 2.625e-05
+      }
+    },
+    {
+      "id": "gpt-4o-2024-08-06",
+      "provider": "openai",
+      "input_usd_per_million": 2.5,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.25e-06,
+        "cache_read_input_token_cost_priority": 2.125e-06,
+        "input_cost_per_token_batches": 1.25e-06,
+        "input_cost_per_token_priority": 4.25e-06,
+        "output_cost_per_token_batches": 5e-06,
+        "output_cost_per_token_priority": 1.7e-05
+      }
+    },
+    {
+      "id": "gpt-4o-2024-11-20",
+      "provider": "openai",
+      "input_usd_per_million": 2.5,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.25e-06,
+        "cache_read_input_token_cost_priority": 2.125e-06,
+        "input_cost_per_token_batches": 1.25e-06,
+        "input_cost_per_token_priority": 4.25e-06,
+        "output_cost_per_token_batches": 5e-06,
+        "output_cost_per_token_priority": 1.7e-05
+      }
+    },
+    {
+      "id": "gpt-4o-audio-preview-2024-12-17",
+      "provider": "openai",
+      "input_usd_per_million": 2.5,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "input_cost_per_audio_token": 4e-05,
+        "output_cost_per_audio_token": 8e-05
+      }
+    },
+    {
+      "id": "gpt-4o-audio-preview-2025-06-03",
+      "provider": "openai",
+      "input_usd_per_million": 2.5,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "input_cost_per_audio_token": 4e-05,
+        "output_cost_per_audio_token": 8e-05
+      }
+    },
+    {
+      "id": "gpt-4o-mini",
+      "provider": "openai",
+      "input_usd_per_million": 0.15,
+      "output_usd_per_million": 0.6,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 7.5e-08,
+        "cache_read_input_token_cost_priority": 1.25e-07,
+        "input_cost_per_token_batches": 7.5e-08,
+        "input_cost_per_token_priority": 2.5e-07,
+        "output_cost_per_token_batches": 3e-07,
+        "output_cost_per_token_priority": 1e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.025,
+          "search_context_size_low": 0.025,
+          "search_context_size_medium": 0.025
+        }
+      }
+    },
+    {
+      "id": "gpt-4o-mini-2024-07-18",
+      "provider": "openai",
+      "input_usd_per_million": 0.15,
+      "output_usd_per_million": 0.6,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 7.5e-08,
+        "cache_read_input_token_cost_priority": 1.25e-07,
+        "input_cost_per_token_batches": 7.5e-08,
+        "input_cost_per_token_priority": 2.5e-07,
+        "output_cost_per_token_batches": 3e-07,
+        "output_cost_per_token_priority": 1e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.025,
+          "search_context_size_low": 0.025,
+          "search_context_size_medium": 0.025
+        }
+      }
+    },
+    {
+      "id": "gpt-4o-mini-audio-preview-2024-12-17",
+      "provider": "openai",
+      "input_usd_per_million": 0.15,
+      "output_usd_per_million": 0.6,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "input_cost_per_audio_token": 1e-05,
+        "output_cost_per_audio_token": 2e-05
+      }
+    },
+    {
+      "id": "gpt-4o-mini-search-preview",
+      "provider": "openai",
+      "input_usd_per_million": 0.15,
+      "output_usd_per_million": 0.6,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 7.5e-08,
+        "input_cost_per_token_batches": 7.5e-08,
+        "output_cost_per_token_batches": 3e-07,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.025,
+          "search_context_size_low": 0.025,
+          "search_context_size_medium": 0.025
+        }
+      }
+    },
+    {
+      "id": "gpt-4o-mini-search-preview-2025-03-11",
+      "provider": "openai",
+      "input_usd_per_million": 0.15,
+      "output_usd_per_million": 0.6,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 7.5e-08,
+        "input_cost_per_token_batches": 7.5e-08,
+        "output_cost_per_token_batches": 3e-07,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.025,
+          "search_context_size_low": 0.025,
+          "search_context_size_medium": 0.025
+        }
+      }
+    },
+    {
+      "id": "gpt-4o-search-preview",
+      "provider": "openai",
+      "input_usd_per_million": 2.5,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.25e-06,
+        "input_cost_per_token_batches": 1.25e-06,
+        "output_cost_per_token_batches": 5e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.025,
+          "search_context_size_low": 0.025,
+          "search_context_size_medium": 0.025
+        }
+      }
+    },
+    {
+      "id": "gpt-4o-search-preview-2025-03-11",
+      "provider": "openai",
+      "input_usd_per_million": 2.5,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.25e-06,
+        "input_cost_per_token_batches": 1.25e-06,
+        "output_cost_per_token_batches": 5e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.025,
+          "search_context_size_low": 0.025,
+          "search_context_size_medium": 0.025
+        }
+      }
+    },
+    {
+      "id": "gpt-5",
+      "provider": "openai",
+      "input_usd_per_million": 1.25,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 272000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.25e-07,
+        "cache_read_input_token_cost_batches": 6.25e-08,
+        "cache_read_input_token_cost_flex": 6.25e-08,
+        "cache_read_input_token_cost_priority": 2.5e-07,
+        "input_cost_per_token_batches": 6.25e-07,
+        "input_cost_per_token_flex": 6.25e-07,
+        "input_cost_per_token_priority": 2.5e-06,
+        "output_cost_per_token_batches": 5e-06,
+        "output_cost_per_token_flex": 5e-06,
+        "output_cost_per_token_priority": 2e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5-2025-08-07",
+      "provider": "openai",
+      "input_usd_per_million": 1.25,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 272000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.25e-07,
+        "cache_read_input_token_cost_batches": 6.25e-08,
+        "cache_read_input_token_cost_flex": 6.25e-08,
+        "cache_read_input_token_cost_priority": 2.5e-07,
+        "input_cost_per_token_batches": 6.25e-07,
+        "input_cost_per_token_flex": 6.25e-07,
+        "input_cost_per_token_priority": 2.5e-06,
+        "output_cost_per_token_batches": 5e-06,
+        "output_cost_per_token_flex": 5e-06,
+        "output_cost_per_token_priority": 2e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5-chat",
+      "provider": "openai",
+      "input_usd_per_million": 1.25,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": false,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.25e-07
+      }
+    },
+    {
+      "id": "gpt-5-chat-latest",
+      "provider": "openai",
+      "input_usd_per_million": 1.25,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.25e-07
+      }
+    },
+    {
+      "id": "gpt-5-mini",
+      "provider": "openai",
+      "input_usd_per_million": 0.25,
+      "output_usd_per_million": 2.0,
+      "reported_max_input_tokens": 272000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 2.5e-08,
+        "cache_read_input_token_cost_batches": 1.25e-08,
+        "cache_read_input_token_cost_flex": 1.25e-08,
+        "cache_read_input_token_cost_priority": 4.5e-08,
+        "input_cost_per_token_batches": 1.25e-07,
+        "input_cost_per_token_flex": 1.25e-07,
+        "input_cost_per_token_priority": 4.5e-07,
+        "output_cost_per_token_batches": 1e-06,
+        "output_cost_per_token_flex": 1e-06,
+        "output_cost_per_token_priority": 3.6e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5-mini-2025-08-07",
+      "provider": "openai",
+      "input_usd_per_million": 0.25,
+      "output_usd_per_million": 2.0,
+      "reported_max_input_tokens": 272000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 2.5e-08,
+        "cache_read_input_token_cost_batches": 1.25e-08,
+        "cache_read_input_token_cost_flex": 1.25e-08,
+        "cache_read_input_token_cost_priority": 4.5e-08,
+        "input_cost_per_token_batches": 1.25e-07,
+        "input_cost_per_token_flex": 1.25e-07,
+        "input_cost_per_token_priority": 4.5e-07,
+        "output_cost_per_token_batches": 1e-06,
+        "output_cost_per_token_flex": 1e-06,
+        "output_cost_per_token_priority": 3.6e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5-nano",
+      "provider": "openai",
+      "input_usd_per_million": 0.05,
+      "output_usd_per_million": 0.4,
+      "reported_max_input_tokens": 272000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 5e-09,
+        "cache_read_input_token_cost_batches": 2.5e-09,
+        "cache_read_input_token_cost_flex": 2.5e-09,
+        "input_cost_per_token_batches": 2.5e-08,
+        "input_cost_per_token_flex": 2.5e-08,
+        "output_cost_per_token_batches": 2e-07,
+        "output_cost_per_token_flex": 2e-07,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5-nano-2025-08-07",
+      "provider": "openai",
+      "input_usd_per_million": 0.05,
+      "output_usd_per_million": 0.4,
+      "reported_max_input_tokens": 272000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 5e-09,
+        "cache_read_input_token_cost_batches": 2.5e-09,
+        "cache_read_input_token_cost_flex": 2.5e-09,
+        "input_cost_per_token_batches": 2.5e-08,
+        "input_cost_per_token_flex": 2.5e-08,
+        "output_cost_per_token_batches": 2e-07,
+        "output_cost_per_token_flex": 2e-07,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5-search-api",
+      "provider": "openai",
+      "input_usd_per_million": 1.25,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 272000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.25e-07,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5-search-api-2025-10-14",
+      "provider": "openai",
+      "input_usd_per_million": 1.25,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 272000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.25e-07,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5.1",
+      "provider": "openai",
+      "input_usd_per_million": 1.25,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 272000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.25e-07,
+        "cache_read_input_token_cost_batches": 6.25e-08,
+        "cache_read_input_token_cost_flex": 6.25e-08,
+        "cache_read_input_token_cost_priority": 2.5e-07,
+        "input_cost_per_token_batches": 6.25e-07,
+        "input_cost_per_token_flex": 6.25e-07,
+        "input_cost_per_token_priority": 2.5e-06,
+        "output_cost_per_token_batches": 5e-06,
+        "output_cost_per_token_flex": 5e-06,
+        "output_cost_per_token_priority": 2e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5.1-2025-11-13",
+      "provider": "openai",
+      "input_usd_per_million": 1.25,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 272000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.25e-07,
+        "cache_read_input_token_cost_batches": 6.25e-08,
+        "cache_read_input_token_cost_flex": 6.25e-08,
+        "cache_read_input_token_cost_priority": 2.5e-07,
+        "input_cost_per_token_batches": 6.25e-07,
+        "input_cost_per_token_flex": 6.25e-07,
+        "input_cost_per_token_priority": 2.5e-06,
+        "output_cost_per_token_batches": 5e-06,
+        "output_cost_per_token_flex": 5e-06,
+        "output_cost_per_token_priority": 2e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5.1-chat-latest",
+      "provider": "openai",
+      "input_usd_per_million": 1.25,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.25e-07
+      }
+    },
+    {
+      "id": "gpt-5.2",
+      "provider": "openai",
+      "input_usd_per_million": 1.75,
+      "output_usd_per_million": 14.0,
+      "reported_max_input_tokens": 272000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.75e-07,
+        "cache_read_input_token_cost_batches": 8.75e-08,
+        "cache_read_input_token_cost_flex": 8.75e-08,
+        "cache_read_input_token_cost_priority": 3.5e-07,
+        "input_cost_per_token_batches": 8.75e-07,
+        "input_cost_per_token_flex": 8.75e-07,
+        "input_cost_per_token_priority": 3.5e-06,
+        "output_cost_per_token_batches": 7e-06,
+        "output_cost_per_token_flex": 7e-06,
+        "output_cost_per_token_priority": 2.8e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5.2-2025-12-11",
+      "provider": "openai",
+      "input_usd_per_million": 1.75,
+      "output_usd_per_million": 14.0,
+      "reported_max_input_tokens": 272000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.75e-07,
+        "cache_read_input_token_cost_batches": 8.75e-08,
+        "cache_read_input_token_cost_flex": 8.75e-08,
+        "cache_read_input_token_cost_priority": 3.5e-07,
+        "input_cost_per_token_batches": 8.75e-07,
+        "input_cost_per_token_flex": 8.75e-07,
+        "input_cost_per_token_priority": 3.5e-06,
+        "output_cost_per_token_batches": 7e-06,
+        "output_cost_per_token_flex": 7e-06,
+        "output_cost_per_token_priority": 2.8e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5.2-chat-latest",
+      "provider": "openai",
+      "input_usd_per_million": 1.75,
+      "output_usd_per_million": 14.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.75e-07
+      }
+    },
+    {
+      "id": "gpt-5.3-chat-latest",
+      "provider": "openai",
+      "input_usd_per_million": 1.75,
+      "output_usd_per_million": 14.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.75e-07
+      }
+    },
+    {
+      "id": "gpt-5.4",
+      "provider": "openai",
+      "input_usd_per_million": 2.5,
+      "output_usd_per_million": 15.0,
+      "reported_max_input_tokens": 1050000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 2.5e-07,
+        "cache_read_input_token_cost_above_272k_tokens": 5e-07,
+        "cache_read_input_token_cost_above_272k_tokens_batches": 2.5e-07,
+        "cache_read_input_token_cost_above_272k_tokens_flex": 2.5e-07,
+        "cache_read_input_token_cost_batches": 1.3e-07,
+        "cache_read_input_token_cost_flex": 1.3e-07,
+        "cache_read_input_token_cost_priority": 5e-07,
+        "input_cost_per_token_above_272k_tokens": 5e-06,
+        "input_cost_per_token_above_272k_tokens_batches": 2.5e-06,
+        "input_cost_per_token_above_272k_tokens_flex": 2.5e-06,
+        "input_cost_per_token_batches": 1.25e-06,
+        "input_cost_per_token_flex": 1.25e-06,
+        "input_cost_per_token_priority": 5e-06,
+        "output_cost_per_token_above_272k_tokens": 2.25e-05,
+        "output_cost_per_token_above_272k_tokens_batches": 1.125e-05,
+        "output_cost_per_token_above_272k_tokens_flex": 1.125e-05,
+        "output_cost_per_token_batches": 7.5e-06,
+        "output_cost_per_token_flex": 7.5e-06,
+        "output_cost_per_token_priority": 3e-05
+      }
+    },
+    {
+      "id": "gpt-5.4-2026-03-05",
+      "provider": "openai",
+      "input_usd_per_million": 2.5,
+      "output_usd_per_million": 15.0,
+      "reported_max_input_tokens": 1050000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 2.5e-07,
+        "cache_read_input_token_cost_above_272k_tokens": 5e-07,
+        "cache_read_input_token_cost_above_272k_tokens_batches": 2.5e-07,
+        "cache_read_input_token_cost_above_272k_tokens_flex": 2.5e-07,
+        "cache_read_input_token_cost_batches": 1.3e-07,
+        "cache_read_input_token_cost_flex": 1.3e-07,
+        "cache_read_input_token_cost_priority": 5e-07,
+        "input_cost_per_token_above_272k_tokens": 5e-06,
+        "input_cost_per_token_above_272k_tokens_batches": 2.5e-06,
+        "input_cost_per_token_above_272k_tokens_flex": 2.5e-06,
+        "input_cost_per_token_batches": 1.25e-06,
+        "input_cost_per_token_flex": 1.25e-06,
+        "input_cost_per_token_priority": 5e-06,
+        "output_cost_per_token_above_272k_tokens": 2.25e-05,
+        "output_cost_per_token_above_272k_tokens_batches": 1.125e-05,
+        "output_cost_per_token_above_272k_tokens_flex": 1.125e-05,
+        "output_cost_per_token_batches": 7.5e-06,
+        "output_cost_per_token_flex": 7.5e-06,
+        "output_cost_per_token_priority": 3e-05
+      }
+    },
+    {
+      "id": "gpt-5.4-mini",
+      "provider": "openai",
+      "input_usd_per_million": 0.75,
+      "output_usd_per_million": 4.5,
+      "reported_max_input_tokens": 272000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 7.5e-08,
+        "cache_read_input_token_cost_batches": 3.75e-08,
+        "cache_read_input_token_cost_flex": 3.75e-08,
+        "cache_read_input_token_cost_priority": 1.5e-07,
+        "input_cost_per_token_batches": 3.75e-07,
+        "input_cost_per_token_flex": 3.75e-07,
+        "input_cost_per_token_priority": 1.5e-06,
+        "output_cost_per_token_batches": 2.25e-06,
+        "output_cost_per_token_flex": 2.25e-06,
+        "output_cost_per_token_priority": 9e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5.4-mini-2026-03-17",
+      "provider": "openai",
+      "input_usd_per_million": 0.75,
+      "output_usd_per_million": 4.5,
+      "reported_max_input_tokens": 272000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 7.5e-08,
+        "cache_read_input_token_cost_batches": 3.75e-08,
+        "cache_read_input_token_cost_flex": 3.75e-08,
+        "cache_read_input_token_cost_priority": 1.5e-07,
+        "input_cost_per_token_batches": 3.75e-07,
+        "input_cost_per_token_flex": 3.75e-07,
+        "input_cost_per_token_priority": 1.5e-06,
+        "output_cost_per_token_batches": 2.25e-06,
+        "output_cost_per_token_flex": 2.25e-06,
+        "output_cost_per_token_priority": 9e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5.4-nano",
+      "provider": "openai",
+      "input_usd_per_million": 0.2,
+      "output_usd_per_million": 1.25,
+      "reported_max_input_tokens": 272000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 2e-08,
+        "cache_read_input_token_cost_batches": 1e-08,
+        "cache_read_input_token_cost_flex": 1e-08,
+        "input_cost_per_token_batches": 1e-07,
+        "input_cost_per_token_flex": 1e-07,
+        "output_cost_per_token_batches": 6.25e-07,
+        "output_cost_per_token_flex": 6.25e-07,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5.4-nano-2026-03-17",
+      "provider": "openai",
+      "input_usd_per_million": 0.2,
+      "output_usd_per_million": 1.25,
+      "reported_max_input_tokens": 272000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 2e-08,
+        "cache_read_input_token_cost_batches": 1e-08,
+        "cache_read_input_token_cost_flex": 1e-08,
+        "input_cost_per_token_batches": 1e-07,
+        "input_cost_per_token_flex": 1e-07,
+        "output_cost_per_token_batches": 6.25e-07,
+        "output_cost_per_token_flex": 6.25e-07,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5.5",
+      "provider": "openai",
+      "input_usd_per_million": 5.0,
+      "output_usd_per_million": 30.0,
+      "reported_max_input_tokens": 1050000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 5e-07,
+        "cache_read_input_token_cost_above_272k_tokens": 1e-06,
+        "cache_read_input_token_cost_above_272k_tokens_batches": 5e-07,
+        "cache_read_input_token_cost_above_272k_tokens_flex": 5e-07,
+        "cache_read_input_token_cost_batches": 2.5e-07,
+        "cache_read_input_token_cost_flex": 2.5e-07,
+        "cache_read_input_token_cost_priority": 1.25e-06,
+        "input_cost_per_token_above_272k_tokens": 1e-05,
+        "input_cost_per_token_above_272k_tokens_batches": 5e-06,
+        "input_cost_per_token_above_272k_tokens_flex": 5e-06,
+        "input_cost_per_token_batches": 2.5e-06,
+        "input_cost_per_token_flex": 2.5e-06,
+        "input_cost_per_token_priority": 1.25e-05,
+        "output_cost_per_token_above_272k_tokens": 4.5e-05,
+        "output_cost_per_token_above_272k_tokens_batches": 2.25e-05,
+        "output_cost_per_token_above_272k_tokens_flex": 2.25e-05,
+        "output_cost_per_token_batches": 1.5e-05,
+        "output_cost_per_token_flex": 1.5e-05,
+        "output_cost_per_token_priority": 7.5e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5.5-2026-04-23",
+      "provider": "openai",
+      "input_usd_per_million": 5.0,
+      "output_usd_per_million": 30.0,
+      "reported_max_input_tokens": 1050000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 5e-07,
+        "cache_read_input_token_cost_above_272k_tokens": 1e-06,
+        "cache_read_input_token_cost_above_272k_tokens_batches": 5e-07,
+        "cache_read_input_token_cost_above_272k_tokens_flex": 5e-07,
+        "cache_read_input_token_cost_batches": 2.5e-07,
+        "cache_read_input_token_cost_flex": 2.5e-07,
+        "cache_read_input_token_cost_priority": 1.25e-06,
+        "input_cost_per_token_above_272k_tokens": 1e-05,
+        "input_cost_per_token_above_272k_tokens_batches": 5e-06,
+        "input_cost_per_token_above_272k_tokens_flex": 5e-06,
+        "input_cost_per_token_batches": 2.5e-06,
+        "input_cost_per_token_flex": 2.5e-06,
+        "input_cost_per_token_priority": 1.25e-05,
+        "output_cost_per_token_above_272k_tokens": 4.5e-05,
+        "output_cost_per_token_above_272k_tokens_batches": 2.25e-05,
+        "output_cost_per_token_above_272k_tokens_flex": 2.25e-05,
+        "output_cost_per_token_batches": 1.5e-05,
+        "output_cost_per_token_flex": 1.5e-05,
+        "output_cost_per_token_priority": 7.5e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5.5-cyber",
+      "provider": "openai",
+      "input_usd_per_million": 12.5,
+      "output_usd_per_million": 75.0,
+      "reported_max_input_tokens": null,
+      "reported_function_calling": null,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.25e-06
+      }
+    },
+    {
+      "id": "gpt-5.5-cyber-preview",
+      "provider": "openai",
+      "input_usd_per_million": 12.5,
+      "output_usd_per_million": 75.0,
+      "reported_max_input_tokens": null,
+      "reported_function_calling": null,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1.25e-06
+      }
+    },
+    {
+      "id": "gpt-5.6",
+      "provider": "openai",
+      "input_usd_per_million": 4.0,
+      "output_usd_per_million": 20.0,
+      "reported_max_input_tokens": 922000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 5e-06,
+        "cache_creation_input_token_cost_above_12hr": 1e-05,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens": 2e-05,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_flex": 1e-05,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_priority": 4e-05,
+        "cache_creation_input_token_cost_above_12hr_flex": 5e-06,
+        "cache_creation_input_token_cost_above_12hr_priority": 2e-05,
+        "cache_creation_input_token_cost_above_272k_tokens": 1e-05,
+        "cache_creation_input_token_cost_above_272k_tokens_batches": 5e-06,
+        "cache_creation_input_token_cost_above_272k_tokens_flex": 5e-06,
+        "cache_creation_input_token_cost_above_272k_tokens_priority": 2e-05,
+        "cache_creation_input_token_cost_batches": 2.5e-06,
+        "cache_creation_input_token_cost_flex": 2.5e-06,
+        "cache_creation_input_token_cost_priority": 1e-05,
+        "cache_read_input_token_cost": 4e-07,
+        "cache_read_input_token_cost_above_272k_tokens": 8e-07,
+        "cache_read_input_token_cost_above_272k_tokens_batches": 4e-07,
+        "cache_read_input_token_cost_above_272k_tokens_flex": 4e-07,
+        "cache_read_input_token_cost_above_272k_tokens_priority": 1.6e-06,
+        "cache_read_input_token_cost_batches": 2e-07,
+        "cache_read_input_token_cost_flex": 2e-07,
+        "cache_read_input_token_cost_priority": 8e-07,
+        "input_cost_per_token_above_272k_tokens": 8e-06,
+        "input_cost_per_token_above_272k_tokens_batches": 4e-06,
+        "input_cost_per_token_above_272k_tokens_flex": 4e-06,
+        "input_cost_per_token_above_272k_tokens_priority": 1.6e-05,
+        "input_cost_per_token_batches": 2e-06,
+        "input_cost_per_token_flex": 2e-06,
+        "input_cost_per_token_priority": 8e-06,
+        "output_cost_per_token_above_272k_tokens": 3e-05,
+        "output_cost_per_token_above_272k_tokens_batches": 1.5e-05,
+        "output_cost_per_token_above_272k_tokens_flex": 1.5e-05,
+        "output_cost_per_token_above_272k_tokens_priority": 6e-05,
+        "output_cost_per_token_batches": 1e-05,
+        "output_cost_per_token_flex": 1e-05,
+        "output_cost_per_token_priority": 4e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5.6-cyber",
+      "provider": "openai",
+      "input_usd_per_million": 12.5,
+      "output_usd_per_million": 75.0,
+      "reported_max_input_tokens": 272000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 1.5625e-05,
+        "cache_creation_input_token_cost_above_12hr": 3.125e-05,
+        "cache_creation_input_token_cost_above_272k_tokens": 3.125e-05,
+        "cache_read_input_token_cost": 1.25e-06,
+        "cache_read_input_token_cost_above_272k_tokens": 2.5e-06,
+        "input_cost_per_token_above_272k_tokens": 2.5e-05,
+        "output_cost_per_token_above_272k_tokens": 0.0001125
+      }
+    },
+    {
+      "id": "gpt-5.6-luna",
+      "provider": "openai",
+      "input_usd_per_million": 0.2,
+      "output_usd_per_million": 1.2,
+      "reported_max_input_tokens": 922000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 2.5e-07,
+        "cache_creation_input_token_cost_above_12hr": 5e-07,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens": 1e-06,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_batches": 5e-07,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_flex": 5e-07,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_priority": 2e-06,
+        "cache_creation_input_token_cost_above_12hr_batches": 2.5e-07,
+        "cache_creation_input_token_cost_above_12hr_flex": 2.5e-07,
+        "cache_creation_input_token_cost_above_12hr_priority": 1e-06,
+        "cache_creation_input_token_cost_above_272k_tokens": 5e-07,
+        "cache_creation_input_token_cost_above_272k_tokens_batches": 2.5e-07,
+        "cache_creation_input_token_cost_above_272k_tokens_flex": 2.5e-07,
+        "cache_creation_input_token_cost_above_272k_tokens_priority": 1e-06,
+        "cache_creation_input_token_cost_batches": 1.25e-07,
+        "cache_creation_input_token_cost_flex": 1.25e-07,
+        "cache_creation_input_token_cost_priority": 5e-07,
+        "cache_read_input_token_cost": 2e-08,
+        "cache_read_input_token_cost_above_272k_tokens": 4e-08,
+        "cache_read_input_token_cost_above_272k_tokens_batches": 2e-08,
+        "cache_read_input_token_cost_above_272k_tokens_flex": 2e-08,
+        "cache_read_input_token_cost_above_272k_tokens_priority": 8e-08,
+        "cache_read_input_token_cost_batches": 1e-08,
+        "cache_read_input_token_cost_flex": 1e-08,
+        "cache_read_input_token_cost_priority": 4e-08,
+        "input_cost_per_token_above_272k_tokens": 4e-07,
+        "input_cost_per_token_above_272k_tokens_batches": 2e-07,
+        "input_cost_per_token_above_272k_tokens_flex": 2e-07,
+        "input_cost_per_token_above_272k_tokens_priority": 8e-07,
+        "input_cost_per_token_batches": 1e-07,
+        "input_cost_per_token_flex": 1e-07,
+        "input_cost_per_token_priority": 4e-07,
+        "output_cost_per_token_above_272k_tokens": 1.8e-06,
+        "output_cost_per_token_above_272k_tokens_batches": 9e-07,
+        "output_cost_per_token_above_272k_tokens_flex": 9e-07,
+        "output_cost_per_token_above_272k_tokens_priority": 3.6e-06,
+        "output_cost_per_token_batches": 6e-07,
+        "output_cost_per_token_flex": 6e-07,
+        "output_cost_per_token_priority": 2.4e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5.6-sol",
+      "provider": "openai",
+      "input_usd_per_million": 4.0,
+      "output_usd_per_million": 20.0,
+      "reported_max_input_tokens": 922000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 5e-06,
+        "cache_creation_input_token_cost_above_12hr": 1e-05,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens": 2e-05,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_batches": 1e-05,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_flex": 1e-05,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_priority": 4e-05,
+        "cache_creation_input_token_cost_above_12hr_batches": 5e-06,
+        "cache_creation_input_token_cost_above_12hr_flex": 5e-06,
+        "cache_creation_input_token_cost_above_12hr_priority": 2e-05,
+        "cache_creation_input_token_cost_above_272k_tokens": 1e-05,
+        "cache_creation_input_token_cost_above_272k_tokens_batches": 5e-06,
+        "cache_creation_input_token_cost_above_272k_tokens_flex": 5e-06,
+        "cache_creation_input_token_cost_above_272k_tokens_priority": 2e-05,
+        "cache_creation_input_token_cost_batches": 2.5e-06,
+        "cache_creation_input_token_cost_flex": 2.5e-06,
+        "cache_creation_input_token_cost_priority": 1e-05,
+        "cache_read_input_token_cost": 4e-07,
+        "cache_read_input_token_cost_above_272k_tokens": 8e-07,
+        "cache_read_input_token_cost_above_272k_tokens_batches": 4e-07,
+        "cache_read_input_token_cost_above_272k_tokens_flex": 4e-07,
+        "cache_read_input_token_cost_above_272k_tokens_priority": 1.6e-06,
+        "cache_read_input_token_cost_batches": 2e-07,
+        "cache_read_input_token_cost_flex": 2e-07,
+        "cache_read_input_token_cost_priority": 8e-07,
+        "input_cost_per_token_above_272k_tokens": 8e-06,
+        "input_cost_per_token_above_272k_tokens_batches": 4e-06,
+        "input_cost_per_token_above_272k_tokens_flex": 4e-06,
+        "input_cost_per_token_above_272k_tokens_priority": 1.6e-05,
+        "input_cost_per_token_batches": 2e-06,
+        "input_cost_per_token_flex": 2e-06,
+        "input_cost_per_token_priority": 8e-06,
+        "output_cost_per_token_above_272k_tokens": 3e-05,
+        "output_cost_per_token_above_272k_tokens_batches": 1.5e-05,
+        "output_cost_per_token_above_272k_tokens_flex": 1.5e-05,
+        "output_cost_per_token_above_272k_tokens_priority": 6e-05,
+        "output_cost_per_token_batches": 1e-05,
+        "output_cost_per_token_flex": 1e-05,
+        "output_cost_per_token_priority": 4e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-5.6-terra",
+      "provider": "openai",
+      "input_usd_per_million": 2.0,
+      "output_usd_per_million": 12.0,
+      "reported_max_input_tokens": 922000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 2.5e-06,
+        "cache_creation_input_token_cost_above_12hr": 5e-06,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens": 1e-05,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_batches": 5e-06,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_flex": 5e-06,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_priority": 2e-05,
+        "cache_creation_input_token_cost_above_12hr_batches": 2.5e-06,
+        "cache_creation_input_token_cost_above_12hr_flex": 2.5e-06,
+        "cache_creation_input_token_cost_above_12hr_priority": 1e-05,
+        "cache_creation_input_token_cost_above_272k_tokens": 5e-06,
+        "cache_creation_input_token_cost_above_272k_tokens_batches": 2.5e-06,
+        "cache_creation_input_token_cost_above_272k_tokens_flex": 2.5e-06,
+        "cache_creation_input_token_cost_above_272k_tokens_priority": 1e-05,
+        "cache_creation_input_token_cost_batches": 1.25e-06,
+        "cache_creation_input_token_cost_flex": 1.25e-06,
+        "cache_creation_input_token_cost_priority": 5e-06,
+        "cache_read_input_token_cost": 2e-07,
+        "cache_read_input_token_cost_above_272k_tokens": 4e-07,
+        "cache_read_input_token_cost_above_272k_tokens_batches": 2e-07,
+        "cache_read_input_token_cost_above_272k_tokens_flex": 2e-07,
+        "cache_read_input_token_cost_above_272k_tokens_priority": 8e-07,
+        "cache_read_input_token_cost_batches": 1e-07,
+        "cache_read_input_token_cost_flex": 1e-07,
+        "cache_read_input_token_cost_priority": 4e-07,
+        "input_cost_per_token_above_272k_tokens": 4e-06,
+        "input_cost_per_token_above_272k_tokens_batches": 2e-06,
+        "input_cost_per_token_above_272k_tokens_flex": 2e-06,
+        "input_cost_per_token_above_272k_tokens_priority": 8e-06,
+        "input_cost_per_token_batches": 1e-06,
+        "input_cost_per_token_flex": 1e-06,
+        "input_cost_per_token_priority": 4e-06,
+        "output_cost_per_token_above_272k_tokens": 1.8e-05,
+        "output_cost_per_token_above_272k_tokens_batches": 9e-06,
+        "output_cost_per_token_above_272k_tokens_flex": 9e-06,
+        "output_cost_per_token_above_272k_tokens_priority": 3.6e-05,
+        "output_cost_per_token_batches": 6e-06,
+        "output_cost_per_token_flex": 6e-06,
+        "output_cost_per_token_priority": 2.4e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-6-astra",
+      "provider": "openai",
+      "input_usd_per_million": 10.0,
+      "output_usd_per_million": 50.0,
+      "reported_max_input_tokens": 922000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 1.25e-05,
+        "cache_creation_input_token_cost_above_12hr": 2.5e-05,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens": 5e-05,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_batches": 2.5e-05,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_flex": 2.5e-05,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_priority": 0.0001,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_ultrafast": 0.0003,
+        "cache_creation_input_token_cost_above_12hr_batches": 1.25e-05,
+        "cache_creation_input_token_cost_above_12hr_flex": 1.25e-05,
+        "cache_creation_input_token_cost_above_12hr_priority": 5e-05,
+        "cache_creation_input_token_cost_above_12hr_ultrafast": 0.00015,
+        "cache_creation_input_token_cost_above_272k_tokens": 2.5e-05,
+        "cache_creation_input_token_cost_above_272k_tokens_batches": 1.25e-05,
+        "cache_creation_input_token_cost_above_272k_tokens_flex": 1.25e-05,
+        "cache_creation_input_token_cost_above_272k_tokens_priority": 5e-05,
+        "cache_creation_input_token_cost_above_272k_tokens_ultrafast": 0.00015,
+        "cache_creation_input_token_cost_batches": 6.25e-06,
+        "cache_creation_input_token_cost_flex": 6.25e-06,
+        "cache_creation_input_token_cost_priority": 2.5e-05,
+        "cache_creation_input_token_cost_ultrafast": 7.5e-05,
+        "cache_read_input_token_cost": 1e-06,
+        "cache_read_input_token_cost_above_272k_tokens": 2e-06,
+        "cache_read_input_token_cost_above_272k_tokens_batches": 1e-06,
+        "cache_read_input_token_cost_above_272k_tokens_flex": 1e-06,
+        "cache_read_input_token_cost_above_272k_tokens_priority": 4e-06,
+        "cache_read_input_token_cost_above_272k_tokens_ultrafast": 1.2e-05,
+        "cache_read_input_token_cost_batches": 5e-07,
+        "cache_read_input_token_cost_flex": 5e-07,
+        "cache_read_input_token_cost_priority": 2e-06,
+        "cache_read_input_token_cost_ultrafast": 6e-06,
+        "input_cost_per_token_above_272k_tokens": 2e-05,
+        "input_cost_per_token_above_272k_tokens_batches": 1e-05,
+        "input_cost_per_token_above_272k_tokens_flex": 1e-05,
+        "input_cost_per_token_above_272k_tokens_priority": 4e-05,
+        "input_cost_per_token_above_272k_tokens_ultrafast": 0.00012,
+        "input_cost_per_token_batches": 5e-06,
+        "input_cost_per_token_flex": 5e-06,
+        "input_cost_per_token_priority": 2e-05,
+        "input_cost_per_token_ultrafast": 6e-05,
+        "output_cost_per_token_above_272k_tokens": 7.5e-05,
+        "output_cost_per_token_above_272k_tokens_batches": 3.75e-05,
+        "output_cost_per_token_above_272k_tokens_flex": 3.75e-05,
+        "output_cost_per_token_above_272k_tokens_priority": 0.00015,
+        "output_cost_per_token_above_272k_tokens_ultrafast": 0.00045,
+        "output_cost_per_token_batches": 2.5e-05,
+        "output_cost_per_token_flex": 2.5e-05,
+        "output_cost_per_token_priority": 0.0001,
+        "output_cost_per_token_ultrafast": 0.0003,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-6-astra-law",
+      "provider": "openai",
+      "input_usd_per_million": 10.0,
+      "output_usd_per_million": 50.0,
+      "reported_max_input_tokens": 922000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 1e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-6-cyber",
+      "provider": "openai",
+      "input_usd_per_million": 20.0,
+      "output_usd_per_million": 100.0,
+      "reported_max_input_tokens": 922000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 2.5e-05,
+        "cache_creation_input_token_cost_above_12hr": 5e-05,
+        "cache_read_input_token_cost": 2e-06,
+        "cache_read_input_token_cost_above_272k_tokens": 4e-06,
+        "input_cost_per_token_above_272k_tokens": 4e-05,
+        "output_cost_per_token_above_272k_tokens": 0.00015
+      }
+    },
+    {
+      "id": "gpt-6-luna",
+      "provider": "openai",
+      "input_usd_per_million": 0.1,
+      "output_usd_per_million": 0.5,
+      "reported_max_input_tokens": 922000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 1.25e-07,
+        "cache_creation_input_token_cost_above_12hr": 2.5e-07,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens": 5e-07,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_batches": 2.5e-07,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_flex": 2.5e-07,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_priority": 1e-06,
+        "cache_creation_input_token_cost_above_12hr_batches": 1.25e-07,
+        "cache_creation_input_token_cost_above_12hr_flex": 1.25e-07,
+        "cache_creation_input_token_cost_above_12hr_priority": 5e-07,
+        "cache_creation_input_token_cost_above_272k_tokens": 2.5e-07,
+        "cache_creation_input_token_cost_above_272k_tokens_batches": 1.25e-07,
+        "cache_creation_input_token_cost_above_272k_tokens_decisions": 2.5e-07,
+        "cache_creation_input_token_cost_above_272k_tokens_flex": 1.25e-07,
+        "cache_creation_input_token_cost_above_272k_tokens_priority": 5e-07,
+        "cache_creation_input_token_cost_batches": 6.25e-08,
+        "cache_creation_input_token_cost_decisions": 1.25e-07,
+        "cache_creation_input_token_cost_flex": 6.25e-08,
+        "cache_creation_input_token_cost_priority": 2.5e-07,
+        "cache_read_input_token_cost": 1e-08,
+        "cache_read_input_token_cost_above_272k_tokens": 2e-08,
+        "cache_read_input_token_cost_above_272k_tokens_batches": 1e-08,
+        "cache_read_input_token_cost_above_272k_tokens_decisions": 2e-08,
+        "cache_read_input_token_cost_above_272k_tokens_flex": 1e-08,
+        "cache_read_input_token_cost_above_272k_tokens_priority": 4e-08,
+        "cache_read_input_token_cost_batches": 5e-09,
+        "cache_read_input_token_cost_decisions": 1e-08,
+        "cache_read_input_token_cost_flex": 5e-09,
+        "cache_read_input_token_cost_priority": 2e-08,
+        "input_cost_per_token_above_272k_tokens": 2e-07,
+        "input_cost_per_token_above_272k_tokens_batches": 1e-07,
+        "input_cost_per_token_above_272k_tokens_decisions": 2e-07,
+        "input_cost_per_token_above_272k_tokens_flex": 1e-07,
+        "input_cost_per_token_above_272k_tokens_priority": 4e-07,
+        "input_cost_per_token_batches": 5e-08,
+        "input_cost_per_token_decisions": 1e-07,
+        "input_cost_per_token_flex": 5e-08,
+        "input_cost_per_token_priority": 2e-07,
+        "output_cost_per_token_above_272k_tokens": 7.5e-07,
+        "output_cost_per_token_above_272k_tokens_batches": 3.75e-07,
+        "output_cost_per_token_above_272k_tokens_decisions": 0.0,
+        "output_cost_per_token_above_272k_tokens_flex": 3.75e-07,
+        "output_cost_per_token_above_272k_tokens_priority": 1.5e-06,
+        "output_cost_per_token_batches": 2.5e-07,
+        "output_cost_per_token_decisions": 0.0,
+        "output_cost_per_token_flex": 2.5e-07,
+        "output_cost_per_token_priority": 1e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-6-rosalind",
+      "provider": "openai",
+      "input_usd_per_million": 15.0,
+      "output_usd_per_million": 75.0,
+      "reported_max_input_tokens": 922000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 1.875e-05,
+        "cache_creation_input_token_cost_above_12hr": 3.75e-05,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens": 7.5e-05,
+        "cache_creation_input_token_cost_above_272k_tokens": 3.75e-05,
+        "cache_read_input_token_cost": 1.5e-06,
+        "cache_read_input_token_cost_above_272k_tokens": 3e-06,
+        "input_cost_per_token_above_272k_tokens": 3e-05,
+        "output_cost_per_token_above_272k_tokens": 0.0001125
+      }
+    },
+    {
+      "id": "gpt-6-sol",
+      "provider": "openai",
+      "input_usd_per_million": 2.0,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 922000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 2.5e-06,
+        "cache_creation_input_token_cost_above_12hr": 5e-06,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens": 1e-05,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_batches": 5e-06,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_flex": 5e-06,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_priority": 2e-05,
+        "cache_creation_input_token_cost_above_12hr_batches": 2.5e-06,
+        "cache_creation_input_token_cost_above_12hr_flex": 2.5e-06,
+        "cache_creation_input_token_cost_above_12hr_priority": 1e-05,
+        "cache_creation_input_token_cost_above_272k_tokens": 5e-06,
+        "cache_creation_input_token_cost_above_272k_tokens_batches": 2.5e-06,
+        "cache_creation_input_token_cost_above_272k_tokens_flex": 2.5e-06,
+        "cache_creation_input_token_cost_above_272k_tokens_priority": 1e-05,
+        "cache_creation_input_token_cost_batches": 1.25e-06,
+        "cache_creation_input_token_cost_flex": 1.25e-06,
+        "cache_creation_input_token_cost_priority": 5e-06,
+        "cache_read_input_token_cost": 2e-07,
+        "cache_read_input_token_cost_above_272k_tokens": 4e-07,
+        "cache_read_input_token_cost_above_272k_tokens_batches": 2e-07,
+        "cache_read_input_token_cost_above_272k_tokens_flex": 2e-07,
+        "cache_read_input_token_cost_above_272k_tokens_priority": 8e-07,
+        "cache_read_input_token_cost_batches": 1e-07,
+        "cache_read_input_token_cost_flex": 1e-07,
+        "cache_read_input_token_cost_priority": 4e-07,
+        "input_cost_per_token_above_272k_tokens": 4e-06,
+        "input_cost_per_token_above_272k_tokens_batches": 2e-06,
+        "input_cost_per_token_above_272k_tokens_flex": 2e-06,
+        "input_cost_per_token_above_272k_tokens_priority": 8e-06,
+        "input_cost_per_token_batches": 1e-06,
+        "input_cost_per_token_flex": 1e-06,
+        "input_cost_per_token_priority": 4e-06,
+        "output_cost_per_token_above_272k_tokens": 1.5e-05,
+        "output_cost_per_token_above_272k_tokens_batches": 7.5e-06,
+        "output_cost_per_token_above_272k_tokens_flex": 7.5e-06,
+        "output_cost_per_token_above_272k_tokens_priority": 3e-05,
+        "output_cost_per_token_batches": 5e-06,
+        "output_cost_per_token_flex": 5e-06,
+        "output_cost_per_token_priority": 2e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-6.1-sol",
+      "provider": "openai",
+      "input_usd_per_million": 2.0,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 922000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 2.5e-06,
+        "cache_creation_input_token_cost_above_12hr": 5e-06,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens": 1e-05,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_batches": 5e-06,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_flex": 5e-06,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_priority": 2e-05,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_ultrafast": 6e-05,
+        "cache_creation_input_token_cost_above_12hr_batches": 2.5e-06,
+        "cache_creation_input_token_cost_above_12hr_flex": 2.5e-06,
+        "cache_creation_input_token_cost_above_12hr_priority": 1e-05,
+        "cache_creation_input_token_cost_above_12hr_ultrafast": 3e-05,
+        "cache_creation_input_token_cost_above_272k_tokens": 5e-06,
+        "cache_creation_input_token_cost_above_272k_tokens_batches": 2.5e-06,
+        "cache_creation_input_token_cost_above_272k_tokens_flex": 2.5e-06,
+        "cache_creation_input_token_cost_above_272k_tokens_priority": 1e-05,
+        "cache_creation_input_token_cost_above_272k_tokens_ultrafast": 3e-05,
+        "cache_creation_input_token_cost_batches": 1.25e-06,
+        "cache_creation_input_token_cost_flex": 1.25e-06,
+        "cache_creation_input_token_cost_priority": 5e-06,
+        "cache_creation_input_token_cost_ultrafast": 1.5e-05,
+        "cache_read_input_token_cost": 1e-07,
+        "cache_read_input_token_cost_above_272k_tokens": 2e-07,
+        "cache_read_input_token_cost_above_272k_tokens_batches": 1e-07,
+        "cache_read_input_token_cost_above_272k_tokens_flex": 1e-07,
+        "cache_read_input_token_cost_above_272k_tokens_priority": 4e-07,
+        "cache_read_input_token_cost_above_272k_tokens_ultrafast": 1.2e-06,
+        "cache_read_input_token_cost_batches": 5e-08,
+        "cache_read_input_token_cost_flex": 5e-08,
+        "cache_read_input_token_cost_priority": 2e-07,
+        "cache_read_input_token_cost_ultrafast": 6e-07,
+        "input_cost_per_token_above_272k_tokens": 4e-06,
+        "input_cost_per_token_above_272k_tokens_batches": 2e-06,
+        "input_cost_per_token_above_272k_tokens_flex": 2e-06,
+        "input_cost_per_token_above_272k_tokens_priority": 8e-06,
+        "input_cost_per_token_above_272k_tokens_ultrafast": 2.4e-05,
+        "input_cost_per_token_batches": 1e-06,
+        "input_cost_per_token_flex": 1e-06,
+        "input_cost_per_token_priority": 4e-06,
+        "input_cost_per_token_ultrafast": 1.2e-05,
+        "output_cost_per_token_above_272k_tokens": 1.5e-05,
+        "output_cost_per_token_above_272k_tokens_batches": 7.5e-06,
+        "output_cost_per_token_above_272k_tokens_flex": 7.5e-06,
+        "output_cost_per_token_above_272k_tokens_priority": 3e-05,
+        "output_cost_per_token_above_272k_tokens_ultrafast": 9e-05,
+        "output_cost_per_token_batches": 5e-06,
+        "output_cost_per_token_flex": 5e-06,
+        "output_cost_per_token_priority": 2e-05,
+        "output_cost_per_token_ultrafast": 6e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-6.1-terra",
+      "provider": "openai",
+      "input_usd_per_million": 1.0,
+      "output_usd_per_million": 5.0,
+      "reported_max_input_tokens": 922000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_creation_input_token_cost": 1.25e-06,
+        "cache_creation_input_token_cost_above_12hr": 2.5e-06,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens": 5e-06,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_batches": 2.5e-06,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_flex": 2.5e-06,
+        "cache_creation_input_token_cost_above_12hr_above_272k_tokens_priority": 1e-05,
+        "cache_creation_input_token_cost_above_12hr_batches": 1.25e-06,
+        "cache_creation_input_token_cost_above_12hr_flex": 1.25e-06,
+        "cache_creation_input_token_cost_above_12hr_priority": 5e-06,
+        "cache_creation_input_token_cost_above_272k_tokens": 2.5e-06,
+        "cache_creation_input_token_cost_above_272k_tokens_batches": 1.25e-06,
+        "cache_creation_input_token_cost_above_272k_tokens_flex": 1.25e-06,
+        "cache_creation_input_token_cost_above_272k_tokens_priority": 5e-06,
+        "cache_creation_input_token_cost_batches": 6.25e-07,
+        "cache_creation_input_token_cost_flex": 6.25e-07,
+        "cache_creation_input_token_cost_priority": 2.5e-06,
+        "cache_read_input_token_cost": 5e-08,
+        "cache_read_input_token_cost_above_272k_tokens": 1e-07,
+        "cache_read_input_token_cost_above_272k_tokens_batches": 5e-08,
+        "cache_read_input_token_cost_above_272k_tokens_flex": 5e-08,
+        "cache_read_input_token_cost_above_272k_tokens_priority": 2e-07,
+        "cache_read_input_token_cost_batches": 2.5e-08,
+        "cache_read_input_token_cost_flex": 2.5e-08,
+        "cache_read_input_token_cost_priority": 1e-07,
+        "input_cost_per_token_above_272k_tokens": 2e-06,
+        "input_cost_per_token_above_272k_tokens_batches": 1e-06,
+        "input_cost_per_token_above_272k_tokens_flex": 1e-06,
+        "input_cost_per_token_above_272k_tokens_priority": 4e-06,
+        "input_cost_per_token_batches": 5e-07,
+        "input_cost_per_token_flex": 5e-07,
+        "input_cost_per_token_priority": 2e-06,
+        "output_cost_per_token_above_272k_tokens": 7.5e-06,
+        "output_cost_per_token_above_272k_tokens_batches": 3.75e-06,
+        "output_cost_per_token_above_272k_tokens_flex": 3.75e-06,
+        "output_cost_per_token_above_272k_tokens_priority": 1.5e-05,
+        "output_cost_per_token_batches": 2.5e-06,
+        "output_cost_per_token_flex": 2.5e-06,
+        "output_cost_per_token_priority": 1e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "gpt-audio",
+      "provider": "openai",
+      "input_usd_per_million": 2.5,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "input_cost_per_audio_token": 3.2e-05,
+        "output_cost_per_audio_token": 6.4e-05
+      }
+    },
+    {
+      "id": "gpt-audio-1.5",
+      "provider": "openai",
+      "input_usd_per_million": 2.5,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "input_cost_per_audio_token": 3.2e-05,
+        "output_cost_per_audio_token": 6.4e-05
+      }
+    },
+    {
+      "id": "gpt-audio-2025-08-28",
+      "provider": "openai",
+      "input_usd_per_million": 2.5,
+      "output_usd_per_million": 10.0,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "input_cost_per_audio_token": 3.2e-05,
+        "output_cost_per_audio_token": 6.4e-05
+      }
+    },
+    {
+      "id": "gpt-audio-mini",
+      "provider": "openai",
+      "input_usd_per_million": 0.6,
+      "output_usd_per_million": 2.4,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "input_cost_per_audio_token": 1e-05,
+        "output_cost_per_audio_token": 2e-05
+      }
+    },
+    {
+      "id": "gpt-audio-mini-2025-10-06",
+      "provider": "openai",
+      "input_usd_per_million": 0.6,
+      "output_usd_per_million": 2.4,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "input_cost_per_audio_token": 1e-05,
+        "output_cost_per_audio_token": 2e-05
+      }
+    },
+    {
+      "id": "gpt-audio-mini-2025-12-15",
+      "provider": "openai",
+      "input_usd_per_million": 0.6,
+      "output_usd_per_million": 2.4,
+      "reported_max_input_tokens": 128000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "input_cost_per_audio_token": 1e-05,
+        "output_cost_per_audio_token": 2e-05
+      }
+    },
+    {
+      "id": "gpt-rosalind-discovery",
+      "provider": "openai",
+      "input_usd_per_million": 5.0,
+      "output_usd_per_million": 25.0,
+      "reported_max_input_tokens": null,
+      "reported_function_calling": null,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 5e-07
+      }
+    },
+    {
+      "id": "gpt-rosalind-research",
+      "provider": "openai",
+      "input_usd_per_million": 5.0,
+      "output_usd_per_million": 25.0,
+      "reported_max_input_tokens": null,
+      "reported_function_calling": null,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 5e-07
+      }
+    },
+    {
+      "id": "o1",
+      "provider": "openai",
+      "input_usd_per_million": 15.0,
+      "output_usd_per_million": 60.0,
+      "reported_max_input_tokens": 200000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 7.5e-06,
+        "input_cost_per_token_batches": 7.5e-06,
+        "output_cost_per_token_batches": 3e-05
+      }
+    },
+    {
+      "id": "o1-2024-12-17",
+      "provider": "openai",
+      "input_usd_per_million": 15.0,
+      "output_usd_per_million": 60.0,
+      "reported_max_input_tokens": 200000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 7.5e-06,
+        "input_cost_per_token_batches": 7.5e-06,
+        "output_cost_per_token_batches": 3e-05
+      }
+    },
+    {
+      "id": "o3",
+      "provider": "openai",
+      "input_usd_per_million": 2.0,
+      "output_usd_per_million": 8.0,
+      "reported_max_input_tokens": 200000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 5e-07,
+        "cache_read_input_token_cost_flex": 2.5e-07,
+        "cache_read_input_token_cost_priority": 8.75e-07,
+        "input_cost_per_token_batches": 1e-06,
+        "input_cost_per_token_flex": 1e-06,
+        "input_cost_per_token_priority": 3.5e-06,
+        "output_cost_per_token_batches": 4e-06,
+        "output_cost_per_token_flex": 4e-06,
+        "output_cost_per_token_priority": 1.4e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "o3-2025-04-16",
+      "provider": "openai",
+      "input_usd_per_million": 2.0,
+      "output_usd_per_million": 8.0,
+      "reported_max_input_tokens": 200000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 5e-07,
+        "cache_read_input_token_cost_flex": 2.5e-07,
+        "cache_read_input_token_cost_priority": 8.75e-07,
+        "input_cost_per_token_batches": 1e-06,
+        "input_cost_per_token_flex": 1e-06,
+        "input_cost_per_token_priority": 3.5e-06,
+        "output_cost_per_token_batches": 4e-06,
+        "output_cost_per_token_flex": 4e-06,
+        "output_cost_per_token_priority": 1.4e-05,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "o3-mini",
+      "provider": "openai",
+      "input_usd_per_million": 1.1,
+      "output_usd_per_million": 4.4,
+      "reported_max_input_tokens": 200000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 5.5e-07,
+        "input_cost_per_token_batches": 5.5e-07,
+        "output_cost_per_token_batches": 2.2e-06
+      }
+    },
+    {
+      "id": "o3-mini-2025-01-31",
+      "provider": "openai",
+      "input_usd_per_million": 1.1,
+      "output_usd_per_million": 4.4,
+      "reported_max_input_tokens": 200000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 5.5e-07,
+        "input_cost_per_token_batches": 5.5e-07,
+        "output_cost_per_token_batches": 2.2e-06
+      }
+    },
+    {
+      "id": "o4-mini",
+      "provider": "openai",
+      "input_usd_per_million": 1.1,
+      "output_usd_per_million": 4.4,
+      "reported_max_input_tokens": 200000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 2.75e-07,
+        "cache_read_input_token_cost_flex": 1.38e-07,
+        "cache_read_input_token_cost_priority": 5e-07,
+        "input_cost_per_token_batches": 5.5e-07,
+        "input_cost_per_token_flex": 5.5e-07,
+        "input_cost_per_token_priority": 2e-06,
+        "output_cost_per_token_batches": 2.2e-06,
+        "output_cost_per_token_flex": 2.2e-06,
+        "output_cost_per_token_priority": 8e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    },
+    {
+      "id": "o4-mini-2025-04-16",
+      "provider": "openai",
+      "input_usd_per_million": 1.1,
+      "output_usd_per_million": 4.4,
+      "reported_max_input_tokens": 200000,
+      "reported_function_calling": true,
+      "other_reported_cost_fields": {
+        "cache_read_input_token_cost": 2.75e-07,
+        "cache_read_input_token_cost_flex": 1.38e-07,
+        "cache_read_input_token_cost_priority": 5e-07,
+        "input_cost_per_token_batches": 5.5e-07,
+        "input_cost_per_token_flex": 5.5e-07,
+        "input_cost_per_token_priority": 2e-06,
+        "output_cost_per_token_batches": 2.2e-06,
+        "output_cost_per_token_flex": 2.2e-06,
+        "output_cost_per_token_priority": 8e-06,
+        "search_context_cost_per_query": {
+          "search_context_size_high": 0.01,
+          "search_context_size_low": 0.01,
+          "search_context_size_medium": 0.01
+        }
+      }
+    }
+  ]
+}
