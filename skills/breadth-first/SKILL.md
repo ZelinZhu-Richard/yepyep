@@ -36,7 +36,9 @@ the table is the standing answer. Resolve each family to a concrete model:
    limit, and which tools a subagent gets.
 2. For each role, select the newest selectable version of its family. Where the
    host offers a family alias that tracks the latest version, pass the alias.
-   Where it lists versioned names, pick the highest version in that family.
+   Where it lists versioned names, pick the highest version in that family,
+   ignoring specialized variants (names with a domain suffix such as `-law`
+   or `-cyber`) unless the task is in that domain.
    Do not rely on version numbers remembered from training or written in old
    notes; the live list is the authority.
 3. If a family is missing, use the nearest selectable tier that keeps the order
