@@ -135,7 +135,7 @@ budget.
 ## Lead's completion record
 
 - Scope and relevant dimensions covered.
-- Actual models used, selection basis, and price freshness/uncertainty.
+- Actual models used (resolved family versions) and any tier substitutions.
 - Completed, failed, inaccessible, and unsearched packets.
 - Decisive evidence and unresolved disagreements.
 - Stop reason and actual resource use when exposed (otherwise unknown).

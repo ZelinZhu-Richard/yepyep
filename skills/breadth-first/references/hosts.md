@@ -10,9 +10,11 @@ second agent framework or call paid external APIs as a fallback.
   working directory up to the repository root) or `$HOME/.agents/skills/` for a
   personal installation. Symlinked skill folders are followed.
 - Invoke with `$breadth-first` and the task.
-- Roles: lead GPT-6 Astra, collectors GPT-6 Luna, consolidators and challengers
-  GPT-6.1 Sol. Apply them only when the session can select those models. The
-  consolidator and challenger caps stay separate even though the model is shared.
+- Roles by family: Astra leads, Luna collects, Sol consolidates and challenges
+  (as of November 2026: GPT-6 Astra, GPT-6 Luna, GPT-6.1 Sol). Codex lists
+  versioned model names, so read the selectable list at each invocation and use
+  the highest version of each family. The consolidator and challenger caps stay
+  separate even though the family is shared.
 - A subagent's model is resolved from an explicit value in the spawn request,
   then `agents.default_subagent_model`, then the parent's model. Pass the model
   explicitly for every worker; otherwise collectors silently inherit the
@@ -37,16 +39,15 @@ second agent framework or call paid external APIs as a fallback.
 - Roles: Fable leads (it is the session model). Collectors run on `haiku`,
   consolidators on `sonnet`, challengers on `opus`. Under an Opus lead keep the
   same three tiers.
+- Pass the bare aliases `haiku`, `sonnet`, `opus`, never a versioned model ID.
+  Claude Code resolves each alias to the current model of that family, so a new
+  release is used as soon as the host updates.
 - **Always pass `model` on every Agent call.** With `model` omitted the host
   chooses, and that choice is often not the cheap tier.
 - **Do not use the Explore agent type as the cheap collector.** It runs on the
   main conversation's model (Opus under a Fable lead) and cannot write files.
   Use a general-purpose agent with `model: haiku`, which has web search, fetch,
   and file writing.
-- The Agent tool accepts the aliases `haiku`, `sonnet`, `opus`, `fable`, and on
-  some surfaces full model IDs. `rank_models.py` resolves the aliases through
-  `references/host-aliases.json`; that mapping is maintained by hand and shows
-  its verification date in the output.
 - Default concurrency is 20 running subagents per session
   (`CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS`); a spawn beyond it fails rather than
   queues. A 100-collector run therefore needs at least five waves; leave slots

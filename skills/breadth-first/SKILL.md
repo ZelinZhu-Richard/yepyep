@@ -9,39 +9,45 @@ More reasoning effort deepens an analysis; it does not widen its coverage.
 This workflow buys width on purpose: the lead plans, cheap workers scan many
 distinct slices, a stronger model consolidates and challenges, the lead decides.
 
-| Role | Does | Codex | Claude Code | Hard cap per run | Typical |
+| Role | Does | Codex family | Claude Code family | Hard cap per run | Typical |
 | --- | --- | --- | --- | --- | --- |
-| Lead | Plans, sizes, checks, decides | GPT-6 Astra | Fable | 1 | 1 |
-| Collector | Searches and extracts one slice | GPT-6 Luna | Haiku | 100 | 20–30 |
-| Consolidator | Dedupes, weighs evidence, shortlists | GPT-6.1 Sol | Sonnet | 20 | 5–10 |
-| Challenger | Attacks the consolidation, then briefs the lead | GPT-6.1 Sol | Opus | 5, in at most 2 rounds | 2–3 |
+| Lead | Plans, sizes, checks, decides | Astra | Fable | 1 | 1 |
+| Collector | Searches and extracts one slice | Luna | Haiku | 100 | 20–30 |
+| Consolidator | Dedupes, weighs evidence, shortlists | Sol | Sonnet | 20 | 5–10 |
+| Challenger | Attacks the consolidation, then briefs the lead | Sol | Opus | 5, in at most 2 rounds | 2–3 |
+
+The table names model **families**, never versions. Always use the newest
+version of each family that the session can select, so a new release is picked
+up without editing this skill.
 
 The caps are totals for one invocation, counting retries and follow-up waves.
 They are ceilings, not targets: agent count still follows from the work. The
 skill cannot change the lead's own model; the user selects it before invoking.
 If the session lead is not the preferred one, keep the other tiers and say so.
 
-## 0. First action: fix the model tiers
+## 0. First action: resolve the model tiers
 
 Before decomposing the task, ask: **"What is the cheapest model I can actually use
-as a subagent here that can reliably do this work?"**
+as a subagent here that can reliably do this work?"** The collector family in
+the table is the standing answer. Resolve each family to a concrete model:
 
-Read the matching section of [host adapters](references/hosts.md) and inspect
-the live delegation tool: which model values it accepts, the concurrency limit,
-and which tools a subagent gets.
+1. Read the matching section of [host adapters](references/hosts.md) and inspect
+   the live delegation tool: which model values it accepts, the concurrency
+   limit, and which tools a subagent gets.
+2. For each role, select the newest selectable version of its family. Where the
+   host offers a family alias that tracks the latest version, pass the alias.
+   Where it lists versioned names, pick the highest version in that family.
+   Do not rely on version numbers remembered from training or written in old
+   notes; the live list is the authority.
+3. If a family is missing, use the nearest selectable tier that keeps the order
+   collector < consolidator < challenger ≤ lead in capability, and say which
+   substitution was made. A collector needs search/fetch tools, enough context
+   for the pages it reads, and reliable structured output.
 
-- **The table's models are selectable** (the normal case): use them. No price
-  lookup is needed; the tiers are the answer.
-- **A tier is missing or the host is unfamiliar:** pick the cheapest selectable
-  model that has the search/fetch tools, enough context for the pages it reads,
-  and reliable structured output. `scripts/rank_models.py` gives a token-price
-  estimate for candidates; see [model selection](references/model-selection.md).
-  Missing prices never block the work.
-
-Wide collection is cheap by design: per token, a collector costs a small
-fraction of a consolidator and far less than the lead, so spend agents on
-breadth and keep the expensive tiers few. Paid search calls and subscription
-usage limits can matter more than collector tokens; bound searches per packet.
+Wide collection is cheap by design: a collector costs a small fraction of a
+consolidator and far less than the lead, so spend agents on breadth and keep
+the expensive tiers few. Paid search calls and subscription usage limits can
+matter more than collector tokens; bound searches per packet.
 
 ## 1. Plan with self-questioning rounds
 
@@ -168,9 +174,3 @@ listing models used, what was covered, and what was inaccessible or unsearched.
 Separate observed results from reported claims and hypotheses. No finite scan
 establishes "all possible" anything, so do not claim it. The lead owns the
 final judgment.
-
-## Maintenance
-
-A weekly workflow refreshes `references/model-catalog.json` only; it does not
-change these instructions or the role preferences. See
-[maintenance](references/maintenance.md).
