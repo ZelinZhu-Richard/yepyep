@@ -108,6 +108,11 @@ The packet count sets the size tier:
 | Medium | 7–15 | 2–4 | 1–2 per round | Ask once, after the pilot |
 | Large | 16–100 | 5–20 | 2–3 per round, 5 total | Ask once, after the pilot |
 
+Each collector packet gets **12 searches and 15 page fetches** by default.
+Fetch pages instead of settling for snippets; a snippet is a lead to follow,
+not evidence. Raise the budget before adding packets: a deeper packet costs
+little more and yields evidence that survives the spot-check.
+
 Fewer than 3 packets means step 0 should have stopped the workflow. Respect
 explicit user limits and never exceed the hard caps. Run in waves under the
 host's concurrency limit, and reserve the consolidator and challenger slots
@@ -128,6 +133,8 @@ wave. Before sending anything else, confirm for each pilot worker:
   line parses as one JSON object with the required fields.
 - **Search:** records carry real URLs, at least some are `full_source`, and any
   platform-access tool named in the brief actually returned content.
+- **Budget:** if a pilot packet ran out of budget with more than 40% of its
+  records `snippet_only`, raise the per-packet budget before scaling.
 - **Tools:** the worker did not report a missing tool. Background subagents can
   have a narrower built-in tool set than foreground ones; see
   [host adapters](references/hosts.md).
@@ -173,18 +180,36 @@ Evidence rules:
 
 ## 6. Spot-check, consolidate, then challenge in two rounds
 
-Every agent here starts from a fresh context and reads the evidence files.
+Each consolidator is **one agent for the whole step**: the same consolidator
+spot-checks its packets, consolidates them, and later revises its own
+consolidation, so it keeps what it learned from refetching the sources.
+Continue it with the host's message-to-agent tool rather than spawning a new
+one. **Challengers always start fresh**: a new agent for each round, with no
+access to the consolidator's reasoning, only to its written output and the
+evidence files. That separation is what makes the challenge independent.
 
 1. **Spot-check (consolidators, before any synthesis).** For each packet in its
-   slice, a consolidator picks 2 `full_source` records at random (all of them if
-   fewer), refetches each URL, and checks that the `support_quote` appears on
-   the page, ignoring whitespace and formatting. Results go to
-   its own `review/spotcheck-<n>.jsonl`. A quote that is absent fails the packet. A quote
-   whose parts are all on the page but not as one span is `stitched`: it does
-   not fail the packet, but two stitched records in one packet do. A page that
-   cannot be reached or has visibly changed is `unverifiable`, not a failure. A failed packet's records are set aside and the packet is rerun once
-   on the consolidator tier, which counts against the consolidator cap. If the
-   rerun also fails, the packet is reported as failed.
+   slice, a consolidator picks 3 `full_source` records at random (all of them if
+   fewer), refetches each URL, and records two separate judgments in its own
+   `review/spotcheck-<n>.jsonl`:
+   - **Presence:** is `support_quote` on the page as one contiguous span
+     (`pass`), only as separate passages (`stitched`), or not at all (`fail`)?
+     A page that cannot be reached or has visibly changed is `unverifiable`.
+   - **Support:** does the quote back the record's `claim_or_approach`, figures
+     included (`supports_claim`: `yes`, `partial`, or `no`)? A real quote under
+     an inflated claim is the more common failure.
+
+   A record fails if its quote is absent or `supports_claim` is `no`. A packet
+   fails if any record fails, or if two or more records are `stitched` or
+   `partial`. A failed packet's records are set aside and the packet is rerun
+   once on the consolidator tier, which counts against the consolidator cap. If
+   the rerun also fails, the packet is reported as failed.
+
+   Be plain about what this catches. Three draws find a packet whose records
+   are mostly bad. If 20% of a packet's records are bad, three draws miss all
+   of them about half the time. The spot-check screens out broken packets; it
+   does not certify individual records. The lead still checks the sources
+   behind every decisive claim in step 7.
 2. **Consolidate.** Consolidators receive the ledger, the decision criteria, and
    the evidence files. Each returns distinct approaches with merged duplicates
    and kept provenance; evidence strength and shared-origin dependence;
@@ -198,7 +223,7 @@ Every agent here starts from a fresh context and reads the evidence files.
    being unpopular rather than unsupported? What did the coverage map miss?
    They open the sources behind the most decisive claims and return ranked,
    specific objections.
-4. **Revise.** A consolidator applies the objections it can support from the
+4. **Revise.** The same consolidator applies the objections it can support from the
    evidence and marks the ones it rejects, with reasons. It does not simply
    defer; an objection needs evidence too.
 5. **Challenge round 2: brief for the lead.** Each round-2 challenger reads
@@ -227,7 +252,8 @@ repeat known findings, or when the envelope is spent. Say which.
 
 Deliver the answer: the map of categories or options, credible niche findings,
 the recommendation and its tradeoffs, citations, and a short coverage note
-listing models used, agents per tier, spot-check pass rate, what was covered,
+listing models used, agents per tier, spot-check results (presence and
+support, counted from the log, not from a reviewer's summary), what was covered,
 and what was failed, inaccessible or unsearched. Separate observed results from
 reported claims and hypotheses. No finite scan establishes "all possible"
 anything, so do not claim it. The lead owns the final judgment.

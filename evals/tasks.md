@@ -38,10 +38,23 @@ Example shapes (choose the actual key source yourself and check it exists):
 Run without asking for approval.
 ```
 
+`collect-only` arm:
+
+```text
+/breadth-first <question>. Do not use <key source> or pages that copy it.
+Run without asking for approval. Skip step 6 entirely: no spot-check,
+consolidation or challenge. After collection, synthesize the answer yourself
+from the packet files.
+```
+
 `single` arm (same lead model, no subagents):
 
 ```text
 <question>. Search widely and list every distinct approach you can support with
 a source, including niche ones. Do not use <key source> or pages that copy it.
-Do not use subagents. Stop when you have spent about $<breadth cost>.
+Do not use subagents. You may make at most <N> web searches and page fetches
+in total; stop when you reach that number.
 ```
+
+Set `<N>` to the total searches plus fetches the `breadth` run made, unless
+the host can enforce a spending or turn limit, which is better.

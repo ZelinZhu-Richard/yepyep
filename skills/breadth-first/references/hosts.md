@@ -22,6 +22,8 @@ second agent framework or call paid external APIs as a fallback.
   expensive lead.
 - `agents.max_concurrent_threads_per_session` caps open subagent threads. Read
   the limit from the tool or config instead of assuming one, and run in waves.
+- Continue a consolidator for revision with the session's send-message tool
+  for an existing agent thread; spawn every challenger as a new thread.
 - Spawn/wait tool names and parameters vary by Codex version. Use the schemas
   exposed in the session; do not invent parameters. Where a model override
   requires a fresh-context child, the brief must carry everything.
@@ -55,6 +57,14 @@ second agent framework or call paid external APIs as a fallback.
   (`CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS`); a spawn beyond it fails rather than
   queues. A 100-collector run therefore needs at least five waves; leave slots
   for reviewers.
+- `WebFetch` hands the page to a small model and returns its answer, not the
+  raw page, so a "verbatim" quote can be the summarizer's wording. Collector
+  and spot-check briefs must ask WebFetch to "quote verbatim, word for word, the
+  passages about …". Where exact text matters and `Bash` with network access is
+  available, fetching the raw page (for example with `curl`) and searching it
+  is stronger evidence.
+- Continue a consolidator for revision with `SendMessage` to its agent ID;
+  spawn every challenger with a new Agent call.
 - Subagents can spawn their own subagents by default. The worker and reviewer
   briefs forbid it so that only the lead allocates work and budget.
 - Subagents spawned from the main conversation run in the background by
