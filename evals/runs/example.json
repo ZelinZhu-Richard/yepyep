@@ -1,0 +1,12 @@
+{
+  "task": "oss-funding",
+  "arm": "breadth",
+  "run": 1,
+  "cost_usd": 1.84,
+  "tokens": 412000,
+  "items": [
+    {"text": "GitHub Sponsors", "valid": true, "key": "k01"},
+    {"text": "Sponsorware (features released after a sponsor goal)", "valid": true, "key": null},
+    {"text": "Selling the maintainer's personal data", "valid": false, "key": null}
+  ]
+}

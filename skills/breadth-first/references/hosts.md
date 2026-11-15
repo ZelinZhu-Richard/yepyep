@@ -9,7 +9,8 @@ second agent framework or call paid external APIs as a fallback.
 - Discovery: `.agents/skills/breadth-first/` in a project (scanned from the
   working directory up to the repository root) or `$HOME/.agents/skills/` for a
   personal installation. Symlinked skill folders are followed.
-- Invoke with `$breadth-first` and the task.
+- Invoke with `$breadth-first` and the task. `agents/openai.yaml` sets
+  `allow_implicit_invocation: false`, so Codex never starts this skill on its own.
 - Roles by family: Astra leads, Luna collects, Sol consolidates and challenges
   (as of November 2026: GPT-6 Astra, GPT-6 Luna, GPT-6.1 Sol). Codex lists
   versioned model names, so read the selectable list at each invocation and use
@@ -33,7 +34,9 @@ second agent framework or call paid external APIs as a fallback.
 
 - Discovery: `.claude/skills/breadth-first/` in a project or
   `~/.claude/skills/breadth-first/` for a personal installation.
-- Invoke with `/breadth-first` and the task, or ask Claude to use the skill.
+- Invoke with `/breadth-first` and the task. The frontmatter sets
+  `disable-model-invocation: true`, so Claude never starts this skill on its own;
+  a run of up to 100 agents should be the user's call.
 - Keep the orchestrator in the main conversation; this skill deliberately has no
   `context: fork`.
 - Roles: Fable leads (it is the session model). Collectors run on `haiku`,
@@ -54,8 +57,15 @@ second agent framework or call paid external APIs as a fallback.
   for reviewers.
 - Subagents can spawn their own subagents by default. The worker and reviewer
   briefs forbid it so that only the lead allocates work and budget.
-- A subagent may lack tools the lead has, such as MCP connectors. State the
-  tools each packet needs in its brief and check the first wave's reports.
+- Subagents spawned from the main conversation run in the background by
+  default. A background subagent keeps every MCP tool but only a fixed subset of
+  built-in tools; that subset includes `WebSearch`, `WebFetch`, `Write`, `Read`
+  and `Bash`, which is all a collector needs. Confirm in the pilot rather than
+  assuming, since the list can change between versions.
+- A subagent's reply does not state its model. A fallback shows as a warning in
+  the result ("This agent switched to …"); the running model is visible to the
+  user in `/tasks`. The pilot checks for the warning and the coverage note says
+  the model was not otherwise verified.
 
 ## Fallback on either host
 
@@ -65,7 +75,7 @@ were used; another pass by the same model is not independent evidence. If
 browsing is absent, use user-provided or connected sources and list the areas
 that could not be reached. Never invent results to simulate a scan.
 
-Reference documentation (verified 2026-11-12; check the installed host):
+Reference documentation (verified 2026-11-15; check the installed host):
 - https://learn.chatgpt.com/docs/build-skills
 - https://learn.chatgpt.com/docs/agent-configuration/subagents
 - https://code.claude.com/docs/en/skills
