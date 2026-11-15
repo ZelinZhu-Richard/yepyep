@@ -20,6 +20,28 @@ class SkillPackageTests(unittest.TestCase):
         self.assertTrue(text.startswith("---\nname: breadth-first\ndescription: "))
 
 
+class EvalScoringTests(unittest.TestCase):
+    def test_scores_distinct_novel_and_duplicates(self):
+        spec = importlib.util.spec_from_file_location("score", ROOT / "evals/score.py")
+        score = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(score)
+        result = score.score({"items": [
+            {"text": "A", "valid": True, "key": "k1"},
+            {"text": "A again", "valid": True, "key": "k1"},
+            {"text": "Niche", "valid": True, "key": None},
+            {"text": "Wrong", "valid": False, "key": None},
+        ]})
+        self.assertEqual(result["distinct_valid"], 2)
+        self.assertEqual(result["key_matched"], 1)
+        self.assertEqual(result["novel_valid"], 1)
+        self.assertAlmostEqual(result["duplicate_rate"], 0.25)
+
+    def test_codex_policy_disables_implicit_invocation(self):
+        text = (SKILL / "agents/openai.yaml").read_text()
+        self.assertIn("allow_implicit_invocation: false", text)
+        self.assertIn("disable-model-invocation: true", (SKILL / "SKILL.md").read_text())
+
+
 class InstallationTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

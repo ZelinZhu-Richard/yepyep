@@ -7,41 +7,47 @@ ideas without discovering different ones.
 **Lead plans → inexpensive capable workers explore → a stronger model
 consolidates → a fresh-context challenger attacks the result → lead decides.**
 
-| Role | Codex family | Claude Code family | Hard cap per run | Typical |
-| --- | --- | --- | --- | --- |
-| Lead | Astra | Fable | 1 | 1 |
-| Collectors | Luna | Haiku | 100 | 20–30 |
-| Consolidators | Sol | Sonnet | 20 | 5–10 |
-| Challengers | Sol | Opus | 5, in at most 2 rounds | 2–3 |
+| Role | Codex family | Claude Code family | Hard cap per run |
+| --- | --- | --- | --- |
+| Lead | Astra | Fable | 1 |
+| Collectors | Luna | Haiku | 100 |
+| Consolidators | Sol | Sonnet | 20 |
+| Challengers | Sol | Opus | 5, in at most 2 rounds |
 
 The skill names model families, not versions. At each run it uses the newest
 selectable version of each family, so a new release needs no change here.
 
 ## The workflow
 
-1. First ask: **What is the cheapest capable subagent model actually available in
-   this session?** The collector family is the standing answer; the lead
-   resolves every family to its newest selectable version.
-2. Use 2–3 planning rounds of three self-directed questions each. Every round's
-   questions build on the previous round's answers: the field, then its sources,
-   then the gaps and counterevidence.
-3. Build a coverage map and divide it into bounded assignments. The lead chooses
-   how many workers each area needs **after decomposition**. There is no fixed
-   number per platform, and simple tasks need not spawn workers.
-4. Assign distinct retrieval/extraction tasks to inexpensive workers, each with
-   its own angle and seed queries. Workers write evidence to files and return
-   short summaries, so the lead's context stays small. Queue work in waves when
-   the host limits concurrency.
-5. Consolidators deduplicate, assess evidence, and explain exclusions.
-   Challengers get two rounds and no more: round 1 sends objections back to the
-   consolidators, who revise; round 2 writes the decision brief for the lead.
-6. The lead checks decisive evidence, fills important gaps within budget, and
-   delivers the answer and recommendation with coverage limits. It does not pause
-   for approval before dispatch.
+0. **Delegation check.** If one agent could answer with a few searches, it
+   answers directly and the skill stops.
+1. **Tiers.** Resolve each family to its newest selectable model.
+2. **Plan.** 2–3 rounds of three self-directed questions, each round building
+   on the last: the field, its sources, then gaps and counterevidence.
+3. **Map and size.** Cut the coverage map into packets with distinct angles.
+   The packet count picks the size tier:
 
-The roles are preferences, used when the runtime can select those models. The
-skill cannot change the active lead model, so select your lead in the host
-before invoking it.
+   | Tier | Collector packets | Consolidators | Challengers | Approval |
+   | --- | --- | --- | --- | --- |
+   | Small | 3–6 | 1 | 1 per round | none |
+   | Medium | 7–15 | 2–4 | 1–2 per round | asked once, after the pilot |
+   | Large | 16–100 | 5–20 | 2–3 per round, 5 total | asked once, after the pilot |
+
+4. **Pilot.** 2–3 collectors go first. The lead checks the model (no fallback
+   warning), that the evidence file parses, that search returned real pages,
+   and that no tool was missing, before scaling.
+5. **Collect.** Each collector writes one JSONL file per packet with verbatim
+   quotes and returns a short summary.
+6. **Spot-check, consolidate, challenge.** Consolidators refetch 2 random
+   records per packet and confirm the quote is on the page; failing packets are
+   rerun one tier up. Then consolidation, challenge round 1 (objections back to
+   the consolidators), revision, and challenge round 2 (decision brief).
+7. **Decide.** The lead checks decisive sources and reports with a coverage
+   note.
+
+Both hosts are set to manual invocation only (`disable-model-invocation` in
+`SKILL.md`, `allow_implicit_invocation: false` in `agents/openai.yaml`), so a
+large run is always the user's choice.
 
 ## Use it
 
@@ -60,6 +66,9 @@ Open this repository in the host and reload/start a session if needed:
 Codex:       $breadth-first Map practical ways to earn income, including niche approaches.
 Claude Code: /breadth-first Map practical ways to earn income, including niche approaches.
 ```
+
+It is not for quick lookups, questions with one known answer, or deep work on
+one chosen option.
 
 For another project, run from this repository (Python 3.10+; no dependencies):
 
@@ -87,19 +96,44 @@ reports that limitation and uses a bounded sequential workflow. It never pretend
 that workers ran, that another model was used, or that inaccessible sources were
 searched.
 
-## Example: map ways to earn income
+## A real run
 
-The lead identifies categories such as employment, services, products, operating
-businesses, licensing, and investing, then decides where evidence can be found.
-RedNote, Instagram, Reddit, Quora, and Hacker News are possible sources, not a
-mandatory list or a complete map of the field. Workers may divide a large source
-by community, category, or evidence type. Other sources may need no worker.
+`/breadth-first How do open-source projects fund their maintainers?`, run on
+2026-11-15. Full artifacts are in [`examples/oss-funding/`](examples/oss-funding/):
+the ledger, the four JSONL evidence files, the spot-check log, both
+consolidations, both challenges, and the [lead's answer](examples/oss-funding/answer.md).
 
-The review distinguishes reported revenue from profit, looks for failures and
-survivorship bias, and preserves useful niche approaches. Multiple posts repeating
-one success story count as one underlying source, not independent confirmation.
-The final answer describes covered areas and gaps rather than claiming to have
-found every possible way to make money.
+| Stage | Agents | Result |
+| --- | --- | --- |
+| Pilot | 2 Haiku (p01, p03) | Files parsed, real pages fetched, no fallback warning |
+| Collect | 2 more Haiku | 46 records, 29 fetched in full, all four packets hit their search budget |
+| Spot-check | 1 Sonnet | 8 of 8 quotes found on the live page; 2 were stitched from separate sentences |
+| Consolidate | same Sonnet | Ranked routes by reliability; flagged self-reported figures |
+| Challenge 1 | 1 Opus | Tidelift had been acquired; employer pay rested on one person; Sovereign Tech had grown past a pilot |
+| Revise | same Sonnet | Accepted two objections, rejected one with reasons |
+| Challenge 2 | 1 Opus | Fetched two sources, found Tidelift still paying, wrote the brief |
+
+Tokens by tier: Haiku about 413k, Sonnet about 198k, Opus about 207k, plus the
+lead. At list prices the Sonnet and Opus review cost more than ten times the
+four collectors combined (search fees aside), which is why the caps on those
+tiers matter most.
+
+Lead's ranking, condensed: employer-paid maintenance, then public fellowships
+(very few places), then selling a paid extension or licence yourself, then
+sponsorships and sponsorware (open to anyone, usually small). Fiscal hosts route
+money but are not a source; bounties and token rewards are unreliable. The
+answer lists grants, median income data and country eligibility as uncovered.
+
+What the run changed in the skill: the stitched quotes led to the
+"one contiguous span" rule and the `stitched` spot-check result.
+
+## Evaluating it
+
+[`evals/`](evals/README.md) compares the skill against a single lead at the
+same dollar cost on tasks with a published answer key, scoring distinct valid
+items, novel finds, duplicate rate and cost over repeated runs. Run it before
+tuning caps or tiers.
 
 See [host adapters](skills/breadth-first/references/hosts.md) and
 [working templates](skills/breadth-first/references/templates.md) for details.
+Licensed under [MIT](LICENSE).
