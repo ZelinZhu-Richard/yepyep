@@ -19,3 +19,6 @@
 {"record":"p03r-e024","packet":"p03r","result":"pass","supports_claim":"yes","note":"Full sentence on page; covers every element of the claim (Vercel, full-time, Nuxt project lead)."}
 {"record":"p03r-e009","packet":"p03r","result":"pass","supports_claim":"yes","note":"Full sentence on page; covers the claim (tokens in proportion to packages controlled and connectedness)."}
 {"record":"p03r-e015","packet":"p03r","result":"pass","supports_claim":"yes","note":"Quote is the tail of 'We're thrilled to announce that Radworks is now streaming...' on the Drips blog; covers $1 million, 30 dependencies, Radworks; Drips is the publisher."}
+{"record":"p02r-e002","packet":"p02r","result":"pass","supports_claim":"yes","note":"Quote is the whole sentence on the page and equals the claim clause by clause."}
+{"record":"p02r-e014","packet":"p02r","result":"pass","supports_claim":"partial","note":"Quote on page (split by tool limit; the same sentence continues). The claim's 'full-time' is on the page elsewhere but not in the quote."}
+{"record":"p02r-e008","packet":"p02r","result":"pass","supports_claim":"partial","note":"Quote on page (the sentence continues 'there are no immediate planned changes'). 'After the acquisition' in the claim is not in the quote."}

@@ -133,7 +133,9 @@ every part is on the page but the quote joins separate passages. "fail" means
 the page loaded and the quote, or a part of it, is not on it. "unverifiable" means
 the page could not be reached, needs a login, or has visibly changed.
 supports_claim is "yes" when the quote backs the whole claim, "partial" when it
-backs only some of it (for example a figure in the claim is not in the quote),
+backs only some of it (a fact, figure, condition or inference in the claim is
+not in the quote; identifying context such as the speaker, company or
+programme may come from the source),
 "no" when it does not back the claim, and null when result is "fail" or
 "unverifiable".
 Then list the failed packets: any record with "fail" or supports_claim "no",

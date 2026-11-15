@@ -202,7 +202,10 @@ evidence files. That separation is what makes the challenge independent.
      A page that cannot be reached or has visibly changed is `unverifiable`.
    - **Support:** does the quote back the record's `claim_or_approach`, figures
      included (`supports_claim`: `yes`, `partial`, or `no`)? A real quote under
-     an inflated claim is the more common failure.
+     an inflated claim is the more common failure. Every fact, figure,
+     condition or inference in the claim must be inside the quote. Only
+     identifying context (who said it; which company, programme or platform)
+     may come from the source instead.
 
    A record fails if its quote is absent or `supports_claim` is `no`. A packet
    fails if any record fails, or if two or more records are `stitched` or
