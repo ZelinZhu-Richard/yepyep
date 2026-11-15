@@ -10,17 +10,20 @@ directory, or a gitignored `.breadth-first/` in the project.
   ledger.md                     coverage ledger (lead)
   packets/p01.jsonl             one evidence file per packet, p01..p99, then p100
   packets/p07-rerun.jsonl       escalated rerun of a failed packet
-  review/spotcheck.jsonl        spot-check results (consolidators)
+  review/spotcheck-<n>.jsonl    spot-check results, one file per consolidator
   review/consolidation-r0.md    first consolidation; per-topic splits add -<topic>
   review/challenge-r1-<n>.md    round-1 objections, one file per challenger
-  review/consolidation-r1.md    revision after round 1
-  review/brief-r2.md            round-2 decision brief for the lead
-  packets/c1.jsonl, c2.jsonl     sources fetched by challengers, as evidence records
+  review/consolidation-r1.md    revision after round 1; per-topic splits add -<topic>
+  review/brief-r2-<n>.md        round-2 decision brief, one file per challenger
+  packets/c1-1.jsonl            sources fetched by challenger 1 in round 1; c2-1 for round 2
 ```
 
 Packet IDs are `p` plus two digits (`p01`), assigned by the lead in the ledger.
-Record IDs are the packet ID, `-e`, and three digits (`p01-e001`). Parallel
-writers never share a file.
+Challenger evidence files are `c<round>-<n>` (`c1-2` is challenger 2 in round
+1), assigned by the lead at dispatch. Record IDs are the file's ID, `-e`, and
+three digits (`p01-e001`, `c1-2-e001`). Parallel
+writers never share a file: every agent that runs in parallel gets its own
+number `<n>` from the lead and writes only files carrying it.
 
 ## Coverage ledger
 
@@ -109,7 +112,8 @@ claims; record capital, time, skills, survivorship bias, and failure evidence.
 
 ```text
 Packets in your slice: (evidence files)
-Output: append to review/spotcheck.jsonl
+Consolidator number <n>:
+Output: review/spotcheck-<n>.jsonl (your own file; never write another's)
 
 For each packet, pick 2 records with inspection "full_source" at random (all of
 them if the packet has fewer). Refetch each source_url and check whether its
@@ -157,6 +161,7 @@ disputed items silently and do not defer to an objection that lacks evidence.
 ## Challenger brief, round 1 (advice to the consolidators)
 
 ```text
+Challenger number <n> (unique within this round):
 User goal and decision criteria:
 Consolidation to attack:
 Evidence files it was built from:
@@ -170,7 +175,9 @@ Your job is to find where this consolidation is wrong, not to improve its prose.
    for being unusual? Name anything that deserves reinstatement and why.
 3. Which categories, communities, or counterarguments are absent from the
    evidence entirely?
-Log every source you fetch as an evidence record in packets/c1.jsonl.
+Log every source you fetch as an evidence record in your own file,
+packets/c1-<n>.jsonl, with record IDs c1-<n>-e001, c1-<n>-e002, ...
+(the lead gives you <n>).
 Return objections ranked by how much they would change the decision, each with
 evidence IDs, and say plainly where the consolidation holds up. Do not spawn
 agents or change the budget.
@@ -179,6 +186,7 @@ agents or change the budget.
 ## Challenger brief, round 2 (decision brief for the lead)
 
 ```text
+Challenger number <n> (unique within this round):
 User goal and decision criteria:
 Revised consolidation and the round-1 objections:
 Evidence files:
@@ -188,7 +196,8 @@ This is the final review round. Write the brief the lead will decide from:
 the shortlist that survived, with tradeoffs and evidence IDs; credible niche
 findings worth keeping; each point still disputed, with both positions and the
 evidence for each; and the gaps where one follow-up wave would most change the
-answer. Log every source you fetch as an evidence record in packets/c2.jsonl.
+answer. Log every source you fetch as an evidence record in your own file,
+packets/c2-<n>.jsonl, with record IDs c2-<n>-e001, ... (the lead gives you <n>).
 State disagreement as disagreement. Do not spawn agents or change the
 budget.
 ```

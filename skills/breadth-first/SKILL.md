@@ -179,7 +179,7 @@ Every agent here starts from a fresh context and reads the evidence files.
    slice, a consolidator picks 2 `full_source` records at random (all of them if
    fewer), refetches each URL, and checks that the `support_quote` appears on
    the page, ignoring whitespace and formatting. Results go to
-   `review/spotcheck.jsonl`. A quote that is absent fails the packet. A quote
+   its own `review/spotcheck-<n>.jsonl`. A quote that is absent fails the packet. A quote
    whose parts are all on the page but not as one span is `stitched`: it does
    not fail the packet, but two stitched records in one packet do. A page that
    cannot be reached or has visibly changed is `unverifiable`, not a failure. A failed packet's records are set aside and the packet is rerun once
@@ -201,8 +201,8 @@ Every agent here starts from a fresh context and reads the evidence files.
 4. **Revise.** A consolidator applies the objections it can support from the
    evidence and marks the ones it rejects, with reasons. It does not simply
    defer; an objection needs evidence too.
-5. **Challenge round 2: brief for the lead.** A challenger reads the revision
-   and writes the decision brief: the surviving shortlist with tradeoffs,
+5. **Challenge round 2: brief for the lead.** Each round-2 challenger reads
+   the revision and writes its own decision brief: the surviving shortlist with tradeoffs,
    credible niche findings, what remains disputed and why, and the gaps worth a
    follow-up wave.
 
@@ -217,8 +217,8 @@ lead spends budget.
 
 ## 7. Lead checks, decides, and reports
 
-Read the round-2 brief with the revised consolidation and the spot-check log
-beside it. Inspect the primary sources behind claims that decide the answer or
+Read the round-2 briefs with the revised consolidation and the spot-check logs
+beside them. Inspect the primary sources behind claims that decide the answer or
 remain disputed. Commission one bounded follow-up wave only for gaps or
 contradictions likely to change the answer.
 
