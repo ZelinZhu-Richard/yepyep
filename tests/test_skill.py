@@ -27,10 +27,10 @@ INSPECTION = {"full_source", "snippet_only", "user_document"}
 EVIDENCE_TYPE = {"direct_measurement", "firsthand_report", "secondary_report", "hypothesis"}
 SPOT_RESULT = {"pass", "stitched", "fail", "unverifiable"}
 SUPPORTS = {"yes", "partial", "no", None}
-PACKET_FILE = re.compile(r"^(p\d{2,3}r?|c[12]-\d+)\.jsonl$")
+PACKET_FILE = re.compile(r"^(p\d{2,3}r?|c[12]-\d+|lead)\.jsonl$")
 REVIEW_FILE = re.compile(r"^(spotcheck-\d+\.jsonl|consolidation-r[01](-[a-z0-9-]+)?\.md"
                          r"|challenge-r1-\d+\.md|brief-r2-\d+\.md)$")
-EVIDENCE_ID = re.compile(r"\b(?:p\d{2,3}r?|c[12]-\d+)-e\d{3}\b")
+EVIDENCE_ID = re.compile(r"\b(?:p\d{2,3}r?|c[12]-\d+|lead)-e\d{3}\b")
 
 
 class ExampleRunTests(unittest.TestCase):

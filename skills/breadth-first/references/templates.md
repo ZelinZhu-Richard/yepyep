@@ -16,6 +16,7 @@ directory, or a gitignored `.breadth-first/` in the project.
   review/consolidation-r1.md    revision after round 1; per-topic splits add -<topic>
   review/brief-r2-<n>.md        round-2 decision brief, one file per challenger
   packets/c1-1.jsonl            sources fetched by challenger 1 in round 1; c2-1 for round 2
+  packets/lead.jsonl            sources the lead checks in step 7; record IDs lead-e001
 ```
 
 Packet IDs are `p` plus two digits (`p01`), assigned by the lead in the ledger.

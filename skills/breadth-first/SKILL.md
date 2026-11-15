@@ -249,7 +249,12 @@ lead spends budget.
 
 Read the round-2 briefs with the revised consolidation and the spot-check logs
 beside them. Inspect the primary sources behind claims that decide the answer or
-remain disputed. Commission one bounded follow-up wave only for gaps or
+remain disputed. Log what you fetch in `packets/lead.jsonl` (IDs `lead-e001`)
+so the answer cites it like any other evidence. Also reread the set-aside
+records of failed packets for figures that bear on the top-ranked claims:
+reviewers never see them, so a decisive fact can drop out of the review
+entirely. In the example run, the largest income share in the source survey
+was only in a set-aside packet, and both review rounds ranked against it. Commission one bounded follow-up wave only for gaps or
 contradictions likely to change the answer.
 
 Stop when the relevant dimensions have adequate evidence and new searches mostly

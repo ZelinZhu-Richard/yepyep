@@ -1,0 +1,18 @@
+{"record":"p01-e007","packet":"p01","result":"pass","supports_claim":"partial","note":"Quote on page; page also says Stripe sends to bank by default and PayPal stores funds. The claim's 'no fixed weekly payout schedule' is an inference not in the quote or page."}
+{"record":"p01-e012","packet":"p01","result":"pass","supports_claim":"partial","note":"'$10,000 per project' on page. The $6,000/$2,000/$2,000 tranches are on the page but not in the quote; eligibility details not checked."}
+{"record":"p01-e005","packet":"p01","result":"pass","supports_claim":"partial","note":"'$101.58 USD' on page (April 2026 Fiscal Sponsorship to NumFOCUS, Inc.), but the quote is a bare fragment; label and payee are not in it."}
+{"record":"p02-e009","packet":"p02","result":"pass","supports_claim":"yes","note":"Sentence prefix on page; sentence continues. No amounts, as the record says."}
+{"record":"p02-e006","packet":"p02","result":"pass","supports_claim":"yes","note":"Quote is the start of a longer sentence naming lightGallery. Page mentions dual-licensing but names no licences, as the record says."}
+{"record":"p02-e008","packet":"p02","result":"pass","supports_claim":"partial","note":"Quote on page (curly apostrophe). Page is an acquisition announcement ('Sonar to Acquire Tidelift'), and the fetched dateline had no year; 'now part of Sonar' and 'Dec 2024' are not in the quote."}
+{"record":"p03-e013","packet":"p03","result":"pass","supports_claim":"yes","note":"Quote on page with conditions (outside working hours; accessibility-related). Claim's time-code/PR logging not re-checked, minor."}
+{"record":"p03-e012","packet":"p03","result":"pass","supports_claim":"yes","note":"Quote on page; 2016 percentages and 2017 amounts also on page."}
+{"record":"p03-e002","packet":"p03","result":"pass","supports_claim":"partial","note":"Quote on page ('We have realized that it's not possible...'). Dropping funding goals is also on the page but not in the quote."}
+{"record":"p04-e010","packet":"p04","result":"pass","supports_claim":"partial","note":"Quote on page. The 12 non-employees / 54% figures are on the page but not in the quote; Valkey part not in quote."}
+{"record":"p04-e008","packet":"p04","result":"pass","supports_claim":"partial","note":"HackerOne quote on page. The claim that IBB stopped rewarding researchers is on the page (separate sentence) but not in the quote."}
+{"record":"p04-e005","packet":"p04","result":"pass","supports_claim":"yes","note":"Quote on page as its own paragraph; the claim's reason (flood loaded the security team) is backed by it."}
+{"record":"p01r-e009","packet":"p01r","result":"pass","supports_claim":"yes","note":"Quote is the tail of a longer sentence on the page (bounty programs give researchers incentives and compensate maintainers for fixing)."}
+{"record":"p01r-e015","packet":"p01r","result":"pass","supports_claim":"yes","note":"Quote on page; sentence continues naming backers."}
+{"record":"p01r-e004","packet":"p01r","result":"pass","supports_claim":"yes","note":"Exact sentence on page."}
+{"record":"p04r-e019","packet":"p04r","result":"pass","supports_claim":"yes","note":"Quote on page: 'more than 90 percent of contributors were Elasticsearch employees' (Register paraphrase of Foster's comparison)."}
+{"record":"p04r-e020","packet":"p04r","result":"pass","supports_claim":"yes","note":"Sentence on page, attributed to Feross Aboukhadijeh (Socket) via email; claim says 'commentators', fine."}
+{"record":"p04r-e013","packet":"p04r","result":"pass","supports_claim":"yes","note":"Exact sentence on page."}
