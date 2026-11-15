@@ -28,7 +28,7 @@ EVIDENCE_TYPE = {"direct_measurement", "firsthand_report", "secondary_report", "
 SPOT_RESULT = {"pass", "stitched", "fail", "unverifiable"}
 SUPPORTS = {"yes", "partial", "no", None}
 PACKET_FILE = re.compile(r"^(p\d{2,3}r?|c[12]-\d+|lead)\.jsonl$")
-REVIEW_FILE = re.compile(r"^(spotcheck-\d+\.jsonl|consolidation-r[01](-[a-z0-9-]+)?\.md"
+REVIEW_FILE = re.compile(r"^(spotcheck-\d+\.jsonl|lead-spotcheck\.jsonl|consolidation-r[01](-[a-z0-9-]+)?\.md"
                          r"|challenge-r1-\d+\.md|brief-r2-\d+\.md)$")
 EVIDENCE_ID = re.compile(r"\b(?:p\d{2,3}r?|c[12]-\d+|lead)-e\d{3}\b")
 
@@ -83,6 +83,44 @@ class ExampleRunTests(unittest.TestCase):
             # Reviewer shorthand like "C1-2" means a fetched source was never logged.
             self.assertIsNone(re.search(r"\bC[12]-\d+\b", (run / "answer.md").read_text()),
                               f"{run.name}: answer cites an unlogged reviewer source")
+
+
+def packet_failures(review_dir):
+    """Apply the packet-fail rule to the spot-check logs (lead lines override)."""
+    verdicts = {}
+    for path in sorted(review_dir.glob("spotcheck-*.jsonl")) + [review_dir / "lead-spotcheck.jsonl"]:
+        if path.exists():
+            for line in path.read_text().splitlines():
+                if line.strip():
+                    row = json.loads(line)
+                    verdicts[row["record"]] = row
+    by_packet = {}
+    for record, row in verdicts.items():
+        by_packet.setdefault(record.rsplit("-e", 1)[0], []).append(row)
+    failed = set()
+    for packet, rows in by_packet.items():
+        hard = any(r["result"] == "fail" or r["supports_claim"] == "no" for r in rows)
+        soft = sum(r["result"] == "stitched" or r["supports_claim"] == "partial" for r in rows)
+        if hard or soft >= 2:
+            failed.add(packet)
+    return set(by_packet), failed
+
+
+class ExampleConsistencyTests(unittest.TestCase):
+    def test_ledger_status_matches_spotcheck_rule(self):
+        for run in (ROOT / "examples").iterdir():
+            if not run.is_dir():
+                continue
+            checked, failed = packet_failures(run / "review")
+            status = {}
+            for line in (run / "ledger.md").read_text().splitlines():
+                cells = [c.strip() for c in line.strip().strip("|").split("|")]
+                if len(cells) > 6 and re.fullmatch(r"p\d{2,3}r?", cells[0]):
+                    status[cells[0]] = cells[5]
+            for packet in checked:
+                self.assertIn(packet, status, f"{run.name}: {packet} missing from ledger")
+                self.assertEqual(status[packet] == "failed", packet in failed,
+                                 f"{run.name}: ledger says {status[packet]!r} for {packet}")
 
 
 class EvalScoringTests(unittest.TestCase):

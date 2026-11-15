@@ -11,6 +11,7 @@ directory, or a gitignored `.breadth-first/` in the project.
   packets/p01.jsonl             one evidence file per packet, p01..p99, then p100
   packets/p07r.jsonl            rerun of a failed packet; record IDs p07r-e001
   review/spotcheck-<n>.jsonl    spot-check results, one file per consolidator
+  review/lead-spotcheck.jsonl   the lead's corrected verdicts; override a reviewer's line
   review/consolidation-r0.md    first consolidation; per-topic splits add -<topic>
   review/challenge-r1-<n>.md    round-1 objections, one file per challenger
   review/consolidation-r1.md    revision after round 1; per-topic splits add -<topic>

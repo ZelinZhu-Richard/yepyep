@@ -254,7 +254,10 @@ so the answer cites it like any other evidence. Also reread the set-aside
 records of failed packets for figures that bear on the top-ranked claims:
 reviewers never see them, so a decisive fact can drop out of the review
 entirely. In the example run, the largest income share in the source survey
-was only in a set-aside packet, and both review rounds ranked against it. Commission one bounded follow-up wave only for gaps or
+was only in a set-aside packet, and both review rounds ranked against it.
+If you find a spot-check verdict wrong, do not edit the reviewer's log: write
+the corrected line to `review/lead-spotcheck.jsonl`, apply the packet-fail rule
+again, and rerun any packet that now fails before relying on it. Commission one bounded follow-up wave only for gaps or
 contradictions likely to change the answer.
 
 Stop when the relevant dimensions have adequate evidence and new searches mostly

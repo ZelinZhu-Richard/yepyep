@@ -1,0 +1,1 @@
+{"record": "p03-e013", "packet": "p03", "result": "pass", "supports_claim": "partial", "note": "Lead audit, prompted by code review: the quote ends at \"if:\" and contains neither the time-code logging nor the PR/commit link the claim states. With p03-e002 also partial, p03 fails the two-partial rule."}
