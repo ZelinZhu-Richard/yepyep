@@ -2,6 +2,8 @@
   "task": "oss-funding",
   "arm": "breadth",
   "run": 1,
+  "key_size": 14,
+  "search_and_fetch_calls": 96,
   "cost_usd": 1.84,
   "tokens": 412000,
   "items": [

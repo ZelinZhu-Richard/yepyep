@@ -99,33 +99,51 @@ searched.
 ## A real run
 
 `/breadth-first How do open-source projects fund their maintainers?`, run on
-2026-11-15. Full artifacts are in [`examples/oss-funding/`](examples/oss-funding/):
-the ledger, the four JSONL evidence files, the spot-check log, both
-consolidations, both challenges, and the [lead's answer](examples/oss-funding/answer.md).
+2026-11-15 under the current rules. Every artifact is in
+[`examples/oss-funding/`](examples/oss-funding/): the ledger, one JSONL file
+per packet, the spot-check log, both consolidations, the round-1 challenge, the
+round-2 brief, and the [lead's answer](examples/oss-funding/answer.md). The
+counts below are from those files, not from any agent's summary, and the test
+suite checks the example against the record schema.
 
 | Stage | Agents | Result |
 | --- | --- | --- |
-| Pilot | 2 Haiku (p01, p03) | Files parsed, real pages fetched, no fallback warning |
-| Collect | 2 more Haiku | 46 records, 29 fetched in full, all four packets hit their search budget |
-| Spot-check | 1 Sonnet | 8 of 8 quotes found on the live page; 2 were stitched from separate sentences |
-| Consolidate | same Sonnet | Ranked routes by reliability; flagged self-reported figures |
-| Challenge 1 | 1 Opus | Tidelift had been acquired; employer pay rested on one person; Sovereign Tech had grown past a pilot |
-| Revise | same Sonnet | Accepted two objections, rejected one with reasons |
-| Challenge 2 | 1 Opus | Fetched two sources, found Tidelift still paying, wrote the brief |
+| Pilot | 2 Haiku (p01, p03) | Files parsed, real pages fetched, no fallback warning, snippet-only 12% and 31% |
+| Collect | 2 more Haiku | 60 records, 46 fetched in full |
+| Spot-check | 1 Sonnet consolidator | 12 first-pass records: all 12 quotes on the page; after the lead's audit, all 12 claim more than their quote, so every first pass fails |
+| Rerun | 4 Sonnet | One rerun per failed packet, one fact per record: 89 records, 82 in full. Spot-check 9 `yes`, 3 `partial`: p01r, p03r, p04r pass; p02r fails, so commercial routes are unranked |
+| Consolidate | same Sonnet | Ranked routes on reliability and availability separately |
+| Challenge 1 | 1 fresh Opus | Moved employment up on survey data; flagged GitHub Sponsors' concentration; split grants from employment |
+| Revise | same Sonnet | Accepted most objections, rejected five with evidence IDs |
+| Challenge 2 | 1 fresh Opus | Settled two disputes with 4 fetches, wrote the decision brief |
+| Lead check | lead | Found the brief's top claim wrong: donations are 25% of income, salaries 24% |
 
-Tokens by tier: Haiku about 413k, Sonnet about 198k, Opus about 207k, plus the
-lead. At list prices the Sonnet and Opus review cost more than ten times the
-four collectors combined (search fees aside), which is why the caps on those
-tiers matter most.
+What the run showed:
 
-Lead's ranking, condensed: employer-paid maintenance, then public fellowships
-(very few places), then selling a paid extension or licence yourself, then
-sponsorships and sponsorware (open to anyone, usually small). Fiscal hosts route
-money but are not a source; bounties and token rewards are unreliable. The
-answer lists grants, median income data and country eligibility as uncovered.
+- **Quote presence is not enough.** Every sampled quote was real, yet all 12
+  sampled first-pass Haiku claims said more than their quotes. That is why the
+  spot-check records `supports_claim` and collectors write one fact per record.
+  Sonnet reruns told the same rule did better (9 of 12 fully supported) but
+  not perfectly: the commercial rerun still failed.
+- **The lead check matters.** The only record of the 25% donations figure was
+  in a failed, set-aside packet, so both review rounds ranked without it. The
+  skill now tells the lead to reread set-aside records for decisive figures and
+  log its own checks in `packets/lead.jsonl`.
+- **Reviewers misjudge too.** The consolidator marked partial records as
+  `yes`. Code review of this example caught two, and the lead's audit of every
+  `yes` found four more. The lead's corrected verdict
+  goes in `review/lead-spotcheck.jsonl`, never into the reviewer's log, and a
+  test now recomputes every packet's pass or fail from the logs and checks the
+  ledger against it.
+- **Budget.** At 12 searches and 15 fetches, snippet-only records fell from
+  48% (previous run, 8 and 8) to 23% of first-pass records.
 
-What the run changed in the skill: the stitched quotes led to the
-"one contiguous span" rule and the `stitched` spot-check result.
+Lead's ranking, condensed: employment that covers maintenance, then one-off
+grants, then donations (open to almost anyone, thin for most). Commercial
+routes (selling a licence yourself, pooled subscriptions) are listed but
+unranked, because their packet failed twice. Token rewards backfired;
+retroactive funding pays in tokens. Not covered: foundation-employed
+maintainers and any median payout.
 
 ## Evaluating it
 

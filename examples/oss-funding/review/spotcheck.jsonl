@@ -1,8 +1,0 @@
-{"record": "p01-e005", "packet": "p01", "result": "pass", "note": "Both sentences on page (quoted per sentence by fetcher)."}
-{"record": "p01-e007", "packet": "p01", "result": "pass", "note": "Verbatim; page adds that payment processing fees still apply."}
-{"record": "p02-e012", "packet": "p02", "result": "pass", "note": "Both sentences present but separated by a clause on 19% YoY growth from $197M; stitched quote, figures $235M/$56M confirmed."}
-{"record": "p02-e003", "packet": "p02", "result": "pass", "note": "Quote is stitched from two sentences in different paragraphs, both present verbatim; page supports commercial licence for Pro/Enterprise. LGPL core claim not checked."}
-{"record": "p03-e004", "packet": "p03", "result": "pass", "note": "Verbatim."}
-{"record": "p03-e006", "packet": "p03", "result": "pass", "note": "Verbatim."}
-{"record": "p04-e001", "packet": "p04", "result": "pass", "note": "60% unpaid hobbyist and 400+ survey present (in separate sentences). The 'quarter from donations / 24% employer / 19% Tidelift' figures in the claim were not covered by the quote and not checked."}
-{"record": "p04-e003", "packet": "p04", "result": "pass", "note": "Verbatim; page states $4,355 monthly average."}
