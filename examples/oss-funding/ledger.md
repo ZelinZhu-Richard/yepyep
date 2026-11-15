@@ -9,7 +9,8 @@ Run 2026-11-15. Tier: small (4 packets, no approval asked). Lead: Claude Opus
 | p01 | Platforms, foundations, grants | Platform docs, fund pages | mainstream | haiku | failed | 16 (14 / 2) | 3 partial | set aside |
 | p01r | Rerun of p01 | same | mainstream | sonnet | complete | 23 (21 / 2) | 3 yes | Patreon, Polar, NumFOCUS, NLnet amounts |
 | p02 | Commercial models | Company and maintainer blogs | mainstream commercial | haiku | partial | 13 (9 / 4) | 2 yes, 1 partial | Tidelift payouts after Sonar |
-| p03 | Niche or newer models | HN, Reddit, blogs | niche or new | haiku | failed | 16 (11 / 5) | 1 yes, 2 partial (one corrected by the lead) | rerun pending |
+| p03 | Niche or newer models | HN, Reddit, blogs | niche or new | haiku | failed | 16 (11 / 5) | 1 yes, 2 partial (one corrected by the lead) | set aside after review; see answer |
+| p03r | Rerun of p03 | same | niche or new | sonnet | complete | 27 (25 / 2) | 3 yes | Opire, IssueHunt, Gitcoin, HN/Reddit threads |
 | p04 | Outcomes and failures | Surveys, post-mortems | failures | haiku | failed | 15 (12 / 3) | 1 yes, 2 partial | set aside |
 | p04r | Rerun of p04 | same | failures | sonnet | complete | 22 (20 / 2) | 3 yes | primary Tidelift report, burnout data |
 | c1-1 | Sources fetched by challenger, round 1 | | | opus | | 7 (7 / 0) | not checked | |

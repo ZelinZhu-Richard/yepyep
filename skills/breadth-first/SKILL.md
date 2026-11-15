@@ -170,7 +170,7 @@ Evidence rules:
 - A claim says no more than its quote. When a page supports several facts (a
   fee, a schedule, an amount), write one record per fact, each with its own
   quote, and never put a figure in a claim that is not inside its quote. In
-  the example run, 7 of 12 spot-checked first-pass records quoted the page
+  the example run, 8 of 12 spot-checked first-pass records quoted the page
   correctly but claimed more than the quote said.
 - A search snippet is a lead, not an inspected source; label it `snippet_only`.
 - Many social platforms block plain fetching. If a platform-access tool such as

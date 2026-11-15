@@ -30,16 +30,21 @@ project activity (p04r-e003).
 
 **Weak or failing.**
 - Bounties collapsed under AI-generated reports; curl ended its programme (p04r-e004 to p04r-e008, one origin).
-- Token and retroactive funding is unproven for individuals (p03-e007, p03-e009).
+- Token rewards backfired: tea paid by packages controlled, about 70% of the npm packages it drew were farming, and it halted rewards (p03r-e009, p03r-e010, p03r-e011).
+- Retroactive funding does pay: Optimism's third round reached 501 recipients, median about 45K OP against 300K for the top 1% (p03r-e012, p03r-e013). It pays in tokens, and recipients mix projects and people.
 - The Open Source Pledge totals $9.2M (c1-1-e007), but it holds no money itself and Sentry initiated it (c2-1-e005, c2-1-e006), so delivery is unverified.
 
 **Niche findings worth keeping.**
+- Retainers: one maintainer funds full-time work with a small set of company retainers and advises pricing them at 25–100% of an engineer's pay (p03r-e022, p03r-e023).
+- Sponsorware: one self-reported case grew GitHub Sponsors income to $112,680 a year (p03r-e002, p03r-e004); there is no base rate.
 - A public funder hiring maintainers directly: the Sovereign Tech Fellowship pays €64,000–82,000 a year (c1-1-e006), and applications are closed.
 - A funder's own study found commits up about 144% with contributors flat, on 4 projects (p04r-e016, p04r-e015, c2-1-e003).
 
 **Coverage note.**
-- Agents: 4 Haiku collectors, 3 Sonnet (one consolidator for spot-check, consolidation and revision, plus two packet reruns), 2 fresh Opus challengers.
-- Spot-check: 18 records. Every quote was on its page, and none was stitched. Claim support: 11 yes, 7 partial, 0 no. All 7 partials were in first passes, so p01 and p04 failed and were rerun; the reruns were 6 of 6 yes. Challenger records were not spot-checked.
-- Not covered: paid support, consulting and training; foundation-employed maintainers (Rust, Zig, NumFOCUS); a median payout for any platform; base rates for commercial licensing.
+- Agents: 4 Haiku collectors, 4 Sonnet (one consolidator for spot-check, consolidation and revision, plus three packet reruns), 2 fresh Opus challengers.
+- Spot-check: 21 records. Every quote was on its page, and none was stitched. Claim support: 13 yes, 8 partial, 0 no, all 8 partials in first passes. p01 and p04 failed at review time and were rerun.
+- A late correction: code review of this example found that p03-e013's quote stops before the conditions its claim states. The lead logged the corrected verdict (review/lead-spotcheck.jsonl), so p03 also fails and was rerun as p03r, which passed 3 of 3. The consolidations and challenges were written while p03 still counted. The lead checked each point they took from p03 against p03r: sponsorware, token rewards, retroactive funding, courses and employer-paid time all hold or are restated above with p03r IDs. No p03 record is cited as evidence.
+- Challenger and lead records were not spot-checked.
+- Not covered: foundation-employed maintainers (Rust, Zig, NumFOCUS); a median payout for any platform; base rates for commercial licensing. Paid support and consulting are covered only by individual accounts (p03r-e019, p03r-e020, p03r-e022).
 - Stopped after one pass because this is a demonstration run; the round-2 brief lists those gaps as the follow-up wave.
 - No finite scan covers every route.

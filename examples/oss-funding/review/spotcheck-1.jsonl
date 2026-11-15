@@ -16,3 +16,6 @@
 {"record":"p04r-e019","packet":"p04r","result":"pass","supports_claim":"yes","note":"Quote on page: 'more than 90 percent of contributors were Elasticsearch employees' (Register paraphrase of Foster's comparison)."}
 {"record":"p04r-e020","packet":"p04r","result":"pass","supports_claim":"yes","note":"Sentence on page, attributed to Feross Aboukhadijeh (Socket) via email; claim says 'commentators', fine."}
 {"record":"p04r-e013","packet":"p04r","result":"pass","supports_claim":"yes","note":"Exact sentence on page."}
+{"record":"p03r-e024","packet":"p03r","result":"pass","supports_claim":"yes","note":"Full sentence on page; covers every element of the claim (Vercel, full-time, Nuxt project lead)."}
+{"record":"p03r-e009","packet":"p03r","result":"pass","supports_claim":"yes","note":"Full sentence on page; covers the claim (tokens in proportion to packages controlled and connectedness)."}
+{"record":"p03r-e015","packet":"p03r","result":"pass","supports_claim":"yes","note":"Quote is the tail of 'We're thrilled to announce that Radworks is now streaming...' on the Drips blog; covers $1 million, 30 dependencies, Radworks; Drips is the publisher."}

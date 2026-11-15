@@ -110,8 +110,8 @@ suite checks the example against the record schema.
 | --- | --- | --- |
 | Pilot | 2 Haiku (p01, p03) | Files parsed, real pages fetched, no fallback warning, snippet-only 12% and 31% |
 | Collect | 2 more Haiku | 60 records, 46 fetched in full |
-| Spot-check | 1 Sonnet consolidator | 12 records: all 12 quotes on the page, but only 5 fully support their claim; 7 partial |
-| Rerun | 2 Sonnet | p01 and p04 failed (2–3 partial each) and were rerun one fact per record: 45 records, 41 in full, spot-check 6 of 6 support their claims |
+| Spot-check | 1 Sonnet consolidator | 12 records: all 12 quotes on the page, but only 4 fully support their claim; 8 partial (one found by the lead later) |
+| Rerun | 3 Sonnet | p01 and p04 failed at review, p03 after the lead's correction; rerun one fact per record: 72 records, 66 in full, spot-check 9 of 9 support their claims |
 | Consolidate | same Sonnet | Ranked routes on reliability and availability separately |
 | Challenge 1 | 1 fresh Opus | Moved employment up on survey data; flagged GitHub Sponsors' concentration; split grants from employment |
 | Revise | same Sonnet | Accepted most objections, rejected five with evidence IDs |
@@ -120,7 +120,7 @@ suite checks the example against the record schema.
 
 What the run showed:
 
-- **Quote presence is not enough.** Every sampled quote was real, yet 7 of
+- **Quote presence is not enough.** Every sampled quote was real, yet 8 of
   the 12 sampled first-pass claims said more than their quotes. That is why the
   spot-check now records `supports_claim`, and why collectors write one fact
   per record. The reruns, written that way, passed cleanly.
@@ -128,6 +128,11 @@ What the run showed:
   in a failed, set-aside packet, so both review rounds ranked without it. The
   skill now tells the lead to reread set-aside records for decisive figures and
   log its own checks in `packets/lead.jsonl`.
+- **Reviewers misjudge too.** The consolidator marked one partial record as
+  `yes`; code review of this example caught it. The lead's corrected verdict
+  goes in `review/lead-spotcheck.jsonl`, never into the reviewer's log, and a
+  test now recomputes every packet's pass or fail from the logs and checks the
+  ledger against it.
 - **Budget.** At 12 searches and 15 fetches, snippet-only records fell from
   48% (previous run, 8 and 8) to 23% of first-pass records.
 
