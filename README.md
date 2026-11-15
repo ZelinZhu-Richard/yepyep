@@ -110,8 +110,8 @@ suite checks the example against the record schema.
 | --- | --- | --- |
 | Pilot | 2 Haiku (p01, p03) | Files parsed, real pages fetched, no fallback warning, snippet-only 12% and 31% |
 | Collect | 2 more Haiku | 60 records, 46 fetched in full |
-| Spot-check | 1 Sonnet consolidator | 12 records: all 12 quotes on the page, but only 4 fully support their claim; 8 partial (one found by the lead later) |
-| Rerun | 3 Sonnet | p01 and p04 failed at review, p03 after the lead's correction; rerun one fact per record: 72 records, 66 in full, spot-check 9 of 9 support their claims |
+| Spot-check | 1 Sonnet consolidator | 12 first-pass records: all 12 quotes on the page; after the lead's audit, all 12 claim more than their quote, so every first pass fails |
+| Rerun | 4 Sonnet | One rerun per failed packet, one fact per record: 89 records, 82 in full. Spot-check 9 `yes`, 3 `partial`: p01r, p03r, p04r pass; p02r fails, so commercial routes are unranked |
 | Consolidate | same Sonnet | Ranked routes on reliability and availability separately |
 | Challenge 1 | 1 fresh Opus | Moved employment up on survey data; flagged GitHub Sponsors' concentration; split grants from employment |
 | Revise | same Sonnet | Accepted most objections, rejected five with evidence IDs |
@@ -120,16 +120,18 @@ suite checks the example against the record schema.
 
 What the run showed:
 
-- **Quote presence is not enough.** Every sampled quote was real, yet 8 of
-  the 12 sampled first-pass claims said more than their quotes. That is why the
-  spot-check now records `supports_claim`, and why collectors write one fact
-  per record. The reruns, written that way, passed cleanly.
+- **Quote presence is not enough.** Every sampled quote was real, yet all 12
+  sampled first-pass Haiku claims said more than their quotes. That is why the
+  spot-check records `supports_claim` and collectors write one fact per record.
+  Sonnet reruns told the same rule did better (9 of 12 fully supported) but
+  not perfectly: the commercial rerun still failed.
 - **The lead check matters.** The only record of the 25% donations figure was
   in a failed, set-aside packet, so both review rounds ranked without it. The
   skill now tells the lead to reread set-aside records for decisive figures and
   log its own checks in `packets/lead.jsonl`.
-- **Reviewers misjudge too.** The consolidator marked one partial record as
-  `yes`; code review of this example caught it. The lead's corrected verdict
+- **Reviewers misjudge too.** The consolidator marked partial records as
+  `yes`. Code review of this example caught two, and the lead's audit of every
+  `yes` found four more. The lead's corrected verdict
   goes in `review/lead-spotcheck.jsonl`, never into the reviewer's log, and a
   test now recomputes every packet's pass or fail from the logs and checks the
   ledger against it.
@@ -137,10 +139,11 @@ What the run showed:
   48% (previous run, 8 and 8) to 23% of first-pass records.
 
 Lead's ranking, condensed: employment that covers maintenance, then one-off
-grants, then selling a licence yourself, then pooled subscriptions, then
-donations (open to almost anyone, thin for most). Bounties and token funding
-are weak. Not covered: paid support and consulting, foundation-employed
-maintainers, and any median payout.
+grants, then donations (open to almost anyone, thin for most). Commercial
+routes (selling a licence yourself, pooled subscriptions) are listed but
+unranked, because their packet failed twice. Token rewards backfired;
+retroactive funding pays in tokens. Not covered: foundation-employed
+maintainers and any median payout.
 
 ## Evaluating it
 
